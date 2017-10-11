@@ -1,0 +1,402 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script type="text/javascript" src="../jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="../generic-tools.js"></script>
+    <script type="text/javascript" src="../experiment-tools-new.js"></script>
+    <script type="text/javascript" src="../browserid.js"></script>
+
+    <script type="text/javascript" src="TSP-e-BGU.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../experiment-style.css" />
+    <link rel="stylesheet" type="text/css" href="TSP.css" />
+
+    <title>TSP</title>
+</head>
+<body>
+    <div id="consent" class="page">
+        <div class="intro">
+
+            <h2>Consent</h2>
+
+            <p>
+                Please consider this information carefully before deciding whether to accept this task.
+            
+            </p>
+            <p>
+                PURPOSE OF RESEARCH: To examine problem solving performance.
+            
+            </p>
+            <p>
+                WHAT YOU WILL DO: You will be asked to solve a graph puzzle.
+            
+            </p>
+            <p>
+                TIME REQUIRED: Participation will take approximately 10 minutes.
+            
+            </p>
+            <p>
+                RISKS: There are no anticipated risks associated with participating in this study. The effects of participating should be comparable to those you would experience from viewing a computer monitor for 20 minutes and using a mouse.
+            
+            </p>
+            <p>
+                COMPENSATION: Upon completion of this task, you will receive a code to enter on the Amazon Mechanical Turk task page, and you will receive the amount that was indicated on the task page.
+            
+            </p>
+            <p>
+                CONFIDENTIALITY: Your participation in this study will remain confidential. Your responses will be assigned a code number. You will NOT be asked to provide your name. You will be asked to provide your age and gender.
+                    Throughout the experiment, we may collect data such as browser type, operating system version, mouse movements, and error rates.
+            
+            </p>
+            <p>
+                PARTICIPATION AND WITHDRAWAL: Your participation in this study is voluntarily, and you may withdraw and return the task to Amazon Mechanical Turk at any time. You will receive a compensation only if you complete the task. You may withdraw at any time by closing the web page of the task.
+            
+            </p>
+            <p>
+                &nbsp;
+            
+            </p>
+            <p>
+                AGREEMENT: The nature and purpose of this research have been sufficiently explained and I agree to participate in this study. I understand that I am free to withdraw at any time.
+            
+            </p>
+            <p>
+                <input type="checkbox" id="consentagree" onclick="onCheckbox()">
+                I agree and will participate in this study.
+            
+            </p>
+        </div>
+    </div>
+
+    <div id="demographics" class="page">
+        <div class="intro demographics">
+
+
+            <h2>First a Few Questions</h2>
+
+            <table>
+                <tr>
+                    <td>
+                        <p>Age</p>
+                    </td>
+                    <td>
+                        <input type="text" id="age" size="40" /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Gender</p>
+                    </td>
+                    <td>
+                        <select id="gender">
+                            <option value=""></option>
+                            <option value="male">male</option>
+                            <option value="female">female</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Education</p>
+                    </td>
+                    <td>
+                        <select id="education">
+                            <option value="">Select one...</option>
+                            <option value="0">Less than High School</option>
+                            <option value="1">High School/GED</option>
+                            <option value="2">College</option>
+                            <option value="3">Graduate Degree</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+    <div id="instructions" class="page" style="text-align: center">
+           <div align="center">
+       <iframe src="https://docs.google.com/presentation/d/1Se5OT-G2RoMizDGruvcmqxkKxasP8eek2air26XoI-I/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+       </div>
+    </div>
+
+    <div id="quiz" class="page">
+        <div id="quizDiv">
+            <h1>Please answer the following questions:</h1>
+
+            <p><b>(2) What is the length of this path so far?</b></p>
+            <img src="images/quiz/TSP_0.jpg" style="height: 257px; width: 294px">
+            <p>
+
+                <input type="radio" name="quiz1" value="a">2<br>
+                <input type="radio" name="quiz1" value="b">3<br>
+                <input type="radio" name="quiz1" value="c">5<br>
+            </p>
+            <p><b>(1) What will happen if you push the "UNDO MOVE” button in the game shown below? </b></p>
+            <img src="images/quiz/TSP_2.jpg" style="height: 251px; width: 301px">
+            <p>
+
+                <input type="radio" name="quiz2" value="a">we will go back to vertex 35.<br>
+                <input type="radio" name="quiz2" value="b">we will go back to vertex 38.
+                <br>
+                <input type="radio" name="quiz2" value="c">we will get a blank graph.<br>
+            </p>
+            <p><b>(3) Is this a correct solution?</b></p>
+            <img src="images/quiz/TSP_1.jpg" style="height: 251px; width: 311px">
+            <p>
+                <input type="radio" name="quiz3" value="a">Yes.<br>
+                <input type="radio" name="quiz3" value="b">No, not all the vertex are colored.<br>
+                <input type="radio" name="quiz3" value="c">No, the path length is not in the range.<br>
+            </p>
+
+        </div>
+    </div>
+
+    <div id="experiment" class="page">
+        <div id="expDesc">
+            <h2>Your task is to go through all the vertices only once.</h2>
+            <br>
+            <b>When you found the way to move through all the vertices click Submit . </b>
+            <br>
+            <b>Remember - a correct solution is the way to walk through all the vertices only once .</b>
+            <br>
+            <br>
+            <b>After submitting your solution (by pressing <b>the Submit button</b>), you will need to answer 2 questions about your play  </b>
+            <br>
+            <br>
+            <b>After answering the questions press the continue button, you will be shown solutions proposed by other people and will decide which solution to vote for.</b>
+            <br>
+            <br>
+            <b>Please note, the graph might take a minute or two to load. </b>
+            <br>
+            <b>Timer:<span id="timer"></span></b>
+            <br>
+            <br>
+        </div>
+
+
+
+
+    </div>
+    <div id="ownSol" class="page" align="center" style="text-align: left;">
+
+        <div id="splitinterface-widget-container" style="position: relative;">
+            <iframe id="bguFrame" src="http://hdm.ise.bgu.ac.il/gdm/GDMVisualizationTestPage.html?workerId=testFrame" style="width: 100%; height: 100%;"></iframe>
+            <!-- <iframe id="testFrame"  style="top: 0; left: 0; width:1000px;height:600px;background-color: blue;position: absolute"></iframe> -->
+
+        </div>
+
+    </div>
+    <div id="voteDescC" class="page" style="text-align: center">
+        <h2>Voting</h2>
+        <br>
+        <b>Please examine your proposed solution, shown below, and vote whether you think it is correct.<br>
+            Remember, a correct is the way to walk through all the vertices only once  </b>
+        <br>
+        <br>
+        <b>Timer:<span id="timer3"></span></b>
+        <br>
+    </div>
+    <div id="solOwnCho" class="page" style="text-align: center">
+     
+        <br>
+        <input type="radio" name="ownVote" value="correct">Correct.<br>
+        <input type="radio" name="ownVote" value="incorrect">Incorrect<br>
+    </div>
+
+    <div id="explainSol" class="page" style="text-align: center">
+ <div class="row">
+
+        <br>
+          <p><b>Please rate how confident are you in your Solution (0-guessing and 10-confident):</b></p>
+
+         <div class="col-xs-6">
+
+          <div class="range range-primary">
+<input type="range" id="range_Sol" min="0" max="10"  oninput="showVal(this.value,'Sol')" onchange="showVal(this.value,'Sol')">
+            <output id="rangePrimarySol">5</output>
+          </div>
+        </div>
+          </div>
+
+        <p><b>Please explain your solution, be as detailed as possible such that other people will be convinced that your solution is correct:</b></p>
+        <p>
+            <center>
+                        <textarea id="explanationVoteOwn" name="explanation" rows="10" cols="100" maxlength = "500" required = "required"></textarea>
+                    </center>
+        </p>
+        <p><b>Did you use any strategy for solving the problem? if so, please describe it briefly:</b></p>
+        <p>
+            <center>
+                        <textarea id="solution" name="solution" rows="10" cols="100" maxlength = "500"></textarea>
+                    </center>
+        </p>
+    </div>
+    <div id="solOwnExp" class="page" style="text-align: center">
+    <div class="row">
+        <br>
+          <p><b>Please rate how confident are you in your vote (0-guessing and 10-confident):</b></p>
+
+         <div class="col-xs-6">
+
+          <div class="range range-primary">
+<input type="range" id="range_O" min="0" max="10"  oninput="showVal(this.value,'O')" onchange="showVal(this.value,'O')">
+            <output id="rangePrimaryO">5</output>
+          </div>
+        </div>
+          </div>
+        <p><b>Please briefly explain your voting:</b></p>
+        <center>
+                    <textarea id="Textarea1" name="explanation" rows="10" cols="100" maxlength = "500" required = "required"></textarea>
+                </center>
+    </div>
+
+    <div id="shortExp" class="page">
+        <h2>Next you will be shown three solutions - your own solution, and two solutions proposed by other people. </h2>
+        <p>
+            Please examine all solutions (yours and the two proposed solutions); for each solution, vote whether you think it is correct or incorrect.
+        </p>
+        <p>If you vote correctly on all solutions, you will earn an additional bonus of 35 cents.</p>
+    </div>
+
+    <div id="solA" class="page" style="text-align: center;">
+        <div id="voteDescA">
+            <h2>Voting</h2>
+            <br>
+            <b>Please examine the proposed solution below and vote whether you think it is correct.<br>
+                Remember, a correct is the way to walk through all the vertices only once</b>
+            <br>
+            <br>
+            <b>Timer:<span id="timer1"></span></b>
+
+            <br>
+        </div>
+        <p><b>The Solution:</b></p>
+        <img id="solOne" src="images/SOL-A-2.jpg">
+        <br>
+        <br>
+        <b>Your Vote</b>
+        <br>
+        
+        <input type="radio" name="AVote" value="correct">Correct.<br>
+        <input type="radio" name="AVote" value="incorrect">Incorrect<br>
+    </div>
+    <div id="solAExp" class="page" style="text-align: center">
+     <div class="row">
+        <br>
+          <p><b>Please rate how confident are you in your vote (0-guessing and 10-confident):</b></p>
+
+         <div class="col-xs-6">
+
+          <div class="range range-primary">
+<input type="range" id="range_A" min="0" max="10"  oninput="showVal(this.value,'A')" onchange="showVal(this.value,'A')">
+            <output id="rangePrimaryA">5</output>
+          </div>
+        </div>
+          </div>
+        <p><b>Please briefly explain your voting:</b></p>
+        <center>
+                        <textarea id="explanationVoteA" name="explanation" rows="10" cols="100" maxlength = "500" required = "required"></textarea>
+                    </center>
+    </div>
+
+    <div id="solB" class="page" style="text-align: center;">
+        <div id="voteDescB">
+            <h2>Voting</h2>
+            <br>
+            <b>Please examine the proposed solution below and vote whether you think it is correct.<br>
+                Remember, a correct is the way to walk through all the vertices only once </b>
+            <br>
+            <b>Timer:<span id="timer2"></span></b>
+            <br>
+        </div>
+        <p><b>The Solution:</b></p>
+        <img id="solTwo" src="images/SOL-B-2.jpg">
+        <br>
+       
+        <b>Your Vote</b>
+        <br>
+        
+        <input type="radio" name="BVote" value="correct">Correct.<br>
+        <input type="radio" name="BVote" value="incorrect">Incorrect<br>
+    </div>
+
+    <div id="solBExp" class="page" style="text-align: center">
+     <div class="row">
+        <br>
+          <p><b>Please rate how confident are you in your vote (0-guessing and 10-confident):</b></p>
+
+         <div class="col-xs-6">
+
+          <div class="range range-primary">
+<input type="range" id="range_B" min="0" max="10"  oninput="showVal(this.value,'B')" onchange="showVal(this.value,'B')">
+            <output id="rangePrimaryB">5</output>
+          </div>
+        </div>
+          </div>
+        <p><b>Please briefly explain your voting:</b></p>
+        <center>
+                    <textarea id="explanationVoteB" name="explanation" rows="10" cols="100" maxlength = "500" required = "required"></textarea>
+                </center>
+    </div>
+
+
+    <div class="overlay" style="display: none;">
+        <div class="overlay-error">
+            <span class="orange">The browser window is too small. Please maximize the browser.</span>
+        </div>
+    </div>
+
+
+    <div id="real" class="page">
+        <div class="intro">
+            Final Words
+        
+        </div>
+    </div>
+
+
+
+    <div id="final" class="page">
+        <div class="intro">
+            <p>You successfully completed this task. Thank you!</p>
+            <p>This is your code:</p>
+            <span class='code'>code
+                </span>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div id="buttonContainer">
+        <button id="btnContinue" onclick="onContinue();">
+            Continue
+        
+        </button>
+    </div>
+
+    <div id="preload">
+    </div>
+   <script type="text/javascript">
+function showVal(value,sol){
+    if(sol == 'B')
+    document.getElementById("rangePrimaryB").innerHTML  = value;
+else if (sol=='A'){
+        document.getElementById("rangePrimaryA").innerHTML  = value;
+
+}
+else if (sol=='O'){
+        document.getElementById("rangePrimaryO").innerHTML  = value;
+
+}else{
+            document.getElementById("rangePrimarySol").innerHTML  = value;
+
+}
+}
+    </script>
+</html>

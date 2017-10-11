@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="C:\Users\Ofra\Documents\gdm" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="bin/NLog.dll" publishTime="07/18/2011 07:26:56" />
+    <file relUrl="GDMVisualizationTestPage.html" publishTime="11/28/2012 01:29:46" />
+    <file relUrl="ClientBin/GDMVisualization.xap" publishTime="06/12/2013 11:02:27" />
+    <file relUrl="Web.config" publishTime="04/24/2013 18:00:05" />
+    <file relUrl="Silverlight.js" publishTime="05/18/2012 19:06:26" />
+    <file relUrl="GDMVisualizationTestPage.aspx" publishTime="05/18/2012 19:06:26" />
+    <file relUrl="bin/NLog.xml" publishTime="07/18/2011 07:26:56" />
+    <file relUrl="NLog.config" publishTime="11/29/2012 02:32:01" />
+    <file relUrl="bin/NLog.config" publishTime="11/29/2012 02:32:01" />
+    <file relUrl="bin/GDMVisualization.Web.dll" publishTime="04/24/2013 17:52:46" />
+    <file relUrl="bin/GDMVisualization.Web.pdb" publishTime="04/24/2013 17:52:46" />
+  </publishProfile>
+</publishData>

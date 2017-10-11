@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="D:\Dor\published" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="bin/NLog.dll" publishTime="07/18/2011 05:26:56" />
+    <file relUrl="bin/GDMWebService.dll" publishTime="11/05/2013 10:41:37" />
+    <file relUrl="Web.config" publishTime="11/05/2013 10:41:37" />
+    <file relUrl="crossdomain.xml" publishTime="03/31/2012 00:31:16" />
+    <file relUrl="Service1.svc" publishTime="06/03/2012 14:47:06" />
+    <file relUrl="bin/NLog.xml" publishTime="07/18/2011 05:26:56" />
+    <file relUrl="NLog.config" publishTime="11/29/2012 01:33:44" />
+    <file relUrl="bin/NLog.config" publishTime="11/29/2012 01:33:44" />
+    <file relUrl="bin/GDMWebService.pdb" publishTime="11/05/2013 10:41:37" />
+    <file relUrl="clientaccesspolicy.xml" publishTime="03/30/2012 22:04:40" />
+  </publishProfile>
+</publishData>

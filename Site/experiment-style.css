@@ -1,0 +1,102 @@
+
+body {
+
+	font-family: Verdana, Sans-Serif;
+	font-family: Verdana, Sans-Serif;
+	background-image: url('body-bg.png')
+} 
+
+.demographics p{
+	text-align: right !important;
+}
+.demographics td {
+	padding-top: 10px; 
+	border-top: 1px dashed #eee;
+}
+
+.demographics select {
+	width: 100px;
+}
+
+.demographics input{
+	width: 100px; 
+}
+
+
+.requester{
+	background-color: #FFF;
+
+	background-position: left;
+	background-repeat: no-repeat;
+	padding: 0 10px;
+
+	text-align:left;
+	border-bottom: 1px dashed #EEE;
+	 
+	margin: 0; 
+
+}
+
+
+
+.requester p{
+	padding-top: 10px; 
+	margin: 0;
+}
+
+.requester img{
+
+	display: block;
+	margin: auto;
+	box-shadow: 1px 1px 4px 4px #ccc;
+	margin-top: 10px;
+	margin-bottom: 10px; 
+}
+
+
+.worker{
+	background-color: #FFF;
+
+	background-position: right;
+	background-repeat: no-repeat;
+	padding: 0 10px; 
+	text-align: left;
+
+	margin: 0; 
+	
+
+	border-bottom: 1px dashed #EEE;
+}
+
+.worker p{
+	font-weight: bold;
+	font-size: 14px; 
+	color: #228; 
+	padding-top: 40px;
+	padding-bottom: 20px;
+	margin: 0;
+}
+
+.intro {
+	width: 800px;
+	margin: auto; 
+	border: 2px solid #AAA; 
+	text-align: left;
+	padding: 16px;
+	background-color: #FFF;
+	font-size: 12px; 
+	overflow: hidden;
+
+}
+
+.intro h2 {
+	text-align: center;
+}
+
+.yellow {
+	background-color: yellow;
+}
+
+.highlight {
+	background-color: yellow;
+}

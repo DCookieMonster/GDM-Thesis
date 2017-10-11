@@ -1,0 +1,2 @@
+C:\Users\Dor\Videos\GDM-New\GDMVisualization\GDMVisualization
+Generated_Code\GDMVisualization.Web.g.cs

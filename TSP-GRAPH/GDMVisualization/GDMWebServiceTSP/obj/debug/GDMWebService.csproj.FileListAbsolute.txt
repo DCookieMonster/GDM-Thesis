@@ -1,0 +1,47 @@
+C:\Users\Uri\Desktop\GDMWebService\GDMWebService\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Uri\Desktop\GDMWebService\GDMWebService\bin\GDMWebService.dll
+C:\Users\Uri\Desktop\GDMWebService\GDMWebService\bin\GDMWebService.pdb
+C:\Users\Uri\Desktop\GDMWebService\GDMWebService\obj\Debug\GDMWebService.dll
+C:\Users\Uri\Desktop\GDMWebService\GDMWebService\obj\Debug\GDMWebService.pdb
+C:\Users\Uri\Desktop\GDM - First Experiment\GDMWebService - server\GDMWebService\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Uri\Desktop\GDM - First Experiment\GDMWebService - server\GDMWebService\obj\Debug\GDMWebService.dll
+C:\Users\Uri\Desktop\GDM - First Experiment\GDMWebService - server\GDMWebService\bin\GDMWebService.dll
+C:\Users\Uri\Desktop\GDM - First Experiment\GDMWebService - server\GDMWebService\bin\GDMWebService.pdb
+C:\Users\Uri\Desktop\GDM - First Experiment\GDMWebService - server\GDMWebService\obj\Debug\GDMWebService.pdb
+C:\Users\Uri\Desktop\GDM - First Experiment\GDMWebService\GDMWebService\bin\GDMWebService.dll
+C:\Users\Uri\Desktop\GDM - First Experiment\GDMWebService\GDMWebService\bin\GDMWebService.pdb
+C:\Users\Uri\Desktop\GDM - First Experiment\GDMWebService\GDMWebService\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Uri\Desktop\GDM - First Experiment\GDMWebService\GDMWebService\obj\Debug\GDMWebService.dll
+C:\Users\Uri\Desktop\GDM - First Experiment\GDMWebService\GDMWebService\obj\Debug\GDMWebService.pdb
+C:\Users\Ofra\Documents\Visual Studio 2010\Projects\GDMWebService\GDMWebService\bin\NLog.config
+C:\Users\Ofra\Documents\Visual Studio 2010\Projects\GDMWebService\GDMWebService\bin\GDMWebService.dll
+C:\Users\Ofra\Documents\Visual Studio 2010\Projects\GDMWebService\GDMWebService\bin\GDMWebService.pdb
+C:\Users\Ofra\Documents\Visual Studio 2010\Projects\GDMWebService\GDMWebService\bin\NLog.dll
+C:\Users\Ofra\Documents\Visual Studio 2010\Projects\GDMWebService\GDMWebService\bin\NLog.xml
+C:\Users\Ofra\Documents\Visual Studio 2010\Projects\GDMWebService\GDMWebService\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Ofra\Documents\Visual Studio 2010\Projects\GDMWebService\GDMWebService\obj\Debug\GDMWebService.dll
+C:\Users\Ofra\Documents\Visual Studio 2010\Projects\GDMWebService\GDMWebService\obj\Debug\GDMWebService.pdb
+D:\Dor\service\GDMWebService\bin\NLog.config
+D:\Dor\service\GDMWebService\bin\GDMWebService.dll
+D:\Dor\service\GDMWebService\bin\GDMWebService.pdb
+D:\Dor\service\GDMWebService\obj\Debug\ResolveAssemblyReference.cache
+D:\Dor\service\GDMWebService\obj\Debug\GDMWebService.dll
+D:\Dor\service\GDMWebService\obj\Debug\GDMWebService.pdb
+C:\Users\Dor\Videos\GDM-New\GDMVisualization\GDMWebService\bin\NLog.config
+C:\Users\Dor\Videos\GDM-New\GDMVisualization\GDMWebService\bin\GDMWebService.dll
+C:\Users\Dor\Videos\GDM-New\GDMVisualization\GDMWebService\bin\GDMWebService.pdb
+C:\Users\Dor\Videos\GDM-New\GDMVisualization\GDMWebService\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Dor\Videos\GDM-New\GDMVisualization\GDMWebService\obj\Debug\GDMWebService.dll
+C:\Users\Dor\Videos\GDM-New\GDMVisualization\GDMWebService\obj\Debug\GDMWebService.pdb
+F:\GDM-New\GDMVisualization\GDMWebService\bin\NLog.config
+F:\GDM-New\GDMVisualization\GDMWebService\bin\GDMWebService.dll
+F:\GDM-New\GDMVisualization\GDMWebService\bin\GDMWebService.pdb
+F:\GDM-New\GDMVisualization\GDMWebService\obj\Debug\ResolveAssemblyReference.cache
+F:\GDM-New\GDMVisualization\GDMWebService\obj\Debug\GDMWebService.dll
+F:\GDM-New\GDMVisualization\GDMWebService\obj\Debug\GDMWebService.pdb
+C:\GDM-New TSP\GDMVisualization\GDMWebService\bin\NLog.config
+C:\GDM-New TSP\GDMVisualization\GDMWebService\bin\GDMWebService.dll
+C:\GDM-New TSP\GDMVisualization\GDMWebService\bin\GDMWebService.pdb
+C:\GDM-New TSP\GDMVisualization\GDMWebService\obj\Debug\GDMWebService.csprojResolveAssemblyReference.cache
+C:\GDM-New TSP\GDMVisualization\GDMWebService\obj\Debug\GDMWebService.dll
+C:\GDM-New TSP\GDMVisualization\GDMWebService\obj\Debug\GDMWebService.pdb

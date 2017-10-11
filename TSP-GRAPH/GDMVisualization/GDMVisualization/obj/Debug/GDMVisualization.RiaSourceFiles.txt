@@ -1,0 +1,1 @@
+C:\GDM-New TSP - V2\GDMVisualization\GDMVisualization.Web\GDMVisualization.Web.csproj,635225517780000000,Properties\AssemblyInfo.cs,Service References\ServiceReference1\Reference.cs,

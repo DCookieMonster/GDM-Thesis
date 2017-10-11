@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html lang="he">
+<head>
+    <script type="text/javascript" src="../jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="../generic-tools.js"></script>
+    <script type="text/javascript" src="experiment-tools.js"></script>
+    <script type="text/javascript" src="../browserid.js"></script>
+
+    <script type="text/javascript" src="probExpHEB.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="experiment-style.css" />
+    <link rel="stylesheet" type="text/css" href="TSP.css" />
+    <meta charset="utf-8" />
+    <title>Experiment</title>
+</head>
+<body>
+    
+
+    <div id="demographics" class="page">
+        <div class="intro demographics">
+
+                    <h2>Insert your ID:</h2>
+                    <div align="center">
+                    <input  type="text" id="id" size="40" />
+                </div>
+
+        </div>
+    </div>
+
+    <div id="quiz" class="page">
+        <div id="quizDiv" dir="rtl">
+            <h1>אנא ענה על השאלות הבאות:</h1>
+
+            <p><b>(1) אתה שייך לקבוצה א׳ - בתרגיל 2 קיבלת 100 ובתרגיל 4 קיבלת 100, כמה כוכבים יש לך?</b></p>
+            <p>
+
+                <input type="radio" name="quiz1" value="a">20<br>
+                <input type="radio" name="quiz1" value="b">28<br>
+                <input type="radio" name="quiz1" value="c">0<br>
+                <input type="radio" name="quiz1" value="d">לא ניתן לדעת<br>
+
+            </p>
+            <p><b>(2) אתה שייך לקבוצה ג׳ - בתרגיל 2 קיבלת 90 ובתרגיל 4 קיבלת 100, כמה כוכבים יש לך?</b></p>
+            <p>
+
+                
+                <input type="radio" name="quiz2" value="a">20<br>
+                <input type="radio" name="quiz2" value="b">28<br>
+                <input type="radio" name="quiz2" value="c">100<br>
+                <input type="radio" name="quiz2" value="d">לא ניתן לדעת, זה תלוי בזוג שצורף אלי<br>
+            </p>
+             <p><b>(3)אתה שייך לקבוצה ג׳ - בתרגיל 2 קיבלת 90 ובתרגיל 4 קיבלת 100, הזוג שצורף אלייך קיבל בתרגיל 2  100 ובתרגיל 4 100, כמה כוכבים יש לך?
+</b></p>
+            <p>
+
+                
+                <input type="radio" name="quiz3" value="a">20<br>
+                <input type="radio" name="quiz3" value="b">28<br>
+                <input type="radio" name="quiz3" value="c">100<br>
+                <input type="radio" name="quiz3" value="d">לא ניתן לדעת <br>
+            </p>
+            <p><b>(4) אתה שייך לקבוצה ב׳ - בתרגיל 2 קיבלת 90 ובתרגיל 4 קיבלת 100, הזוג שצורף אלייך קיבל בתרגיל 2 100 ובתרגיל 4 80, כמה כוכבים יש לך?</b></p>
+            <p>
+
+                
+                <input type="radio" name="quiz4" value="a">20<br>
+                <input type="radio" name="quiz4" value="b">28<br>
+                <input type="radio" name="quiz4" value="c">0<br>
+                <input type="radio" name="quiz4" value="d">לא ניתן לדעת <br>
+            </p>
+            <p><b>(5) בפעם הראשונה הייתה שייך לקבוצה א׳  באיזה בקבוצה תהיה בתרגיל הבא?</b></p>
+            <p>
+
+                
+                <input type="radio" name="quiz5" value="a">א<br>
+                <input type="radio" name="quiz5" value="b">ב<br>
+                <input type="radio" name="quiz5" value="c">ג<br>
+                <input type="radio" name="quiz5" value="d">לא ניתן לדעת, הבחירה היא רנדומלית <br>
+            </p>
+
+
+        </div>
+    </div>
+
+
+    <div id="final" class="page">
+        <div class="intro">
+            <p>You successfully completed this task. Thank you!</p>
+        </div>
+    </div>
+   <div id="notpassfinal" class="page">
+        <div class="intro">
+            <p>You didn't completed this task. You will need to do it again on another day.</p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div id="buttonContainer">
+        <button id="btnContinue" onclick="onContinue();">
+            Continue
+		
+        </button>
+    </div>
+
+    <div id="preload">
+    </div>
+</body>
+</html>

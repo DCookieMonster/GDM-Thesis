@@ -1,0 +1,357 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script type="text/javascript" src="../jquery-1.8.2.min.js" ></script>
+		<script type="text/javascript" src="../generic-tools.js" ></script>
+		<script type="text/javascript" src="../experiment-tools.js" ></script>
+		<script type="text/javascript" src="../browserid.js" ></script>
+
+		<script type="text/javascript" src="vertexcoverGroupB3.js" ></script>
+
+   		<link rel="stylesheet" type="text/css" href="../experiment-style.css" /> 		
+		<link rel="stylesheet" type="text/css" href="vertexcover.css" />
+
+		<title>Vertex Cover</title>
+	</head>
+	<body >
+		<div id="consent" class="page">
+			<div class = "intro">
+
+					<h2> Consent</h2>
+
+				<p>
+					Please consider this information carefully before deciding whether to accept this task.
+				</p>
+				<p>
+					PURPOSE OF RESEARCH: To examine problem solving performance.
+				</p>
+				<p>
+					WHAT YOU WILL DO: You will be asked to solve a graph puzzle.
+				</p>
+				<p>
+					TIME REQUIRED: Participation will take approximately 10-30 minutes.
+				</p>
+				<p>
+					RISKS: There are no anticipated risks associated with participating in this study. The effects of participating should be comparable to those you would experience from viewing a computer monitor for 20 minutes and using a mouse.
+				</p>
+				<p>
+					COMPENSATION: Upon completion of this task, you will receive a code to enter on the Amazon Mechanical Turk task page, and you will receive the amount that was indicated on the task page.
+				</p>
+				<p>
+					CONFIDENTIALITY: Your participation in this study will remain confidential. Your responses will be assigned a code number. You will NOT be asked to provide your name. You will be asked to provide your age and gender.
+					Throughout the experiment, we may collect data such as browser type, operating system version, mouse movements, and error rates.
+				</p>
+				<p>
+					PARTICIPATION AND WITHDRAWAL: Your participation in this study is voluntarily, and you may withdraw and return the task to Amazon Mechanical Turk at any time. You will receive a compensation only if you complete the task. You may withdraw at any time by closing the web page of the task.
+				</p>
+				<p>
+					&nbsp;
+				</p>
+				<p>
+					AGREEMENT: The nature and purpose of this research have been sufficiently explained and I agree to participate in this study. I understand that I am free to withdraw at any time.
+				</p>
+				<p>
+					<input type="checkbox" id="consentagree" onclick="onCheckbox()">
+					I agree and will participate in this study.
+				</p>
+			</div>
+		</div>
+		<div id="demographics" class="page">
+			<div class="intro demographics">
+		
+			
+				<h2>First a Few Questions</h2>
+				
+				<table> 
+					<tr>
+						<td><p>Age</p></td>
+						<td><input type="text" id="age" size="40" /></td>
+					</tr>
+					<tr>
+						<td><p>Gender</p></td>
+						<td> <select id="gender">
+							<option value=""></option>					
+							<option value="male">male</option>
+							<option value="female">female</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td><p>Education</p> </td>
+						<td> <select id="education">
+							  <option value="">Select one...</option>
+							  <option value="0" >Less than High School</option>
+							  <option value="1" >High School/GED</option>
+							  <option value="2" >College</option>
+							  <option value="3" >Graduate Degree</option>				
+							</select>
+						</td>				
+					</tr>
+					<tr>
+					</tr>
+				</table>
+		
+			</div> 
+		</div> 
+		<div id="instructions" class="page">
+			<div class="intro">
+				<h1>
+					Instructions - the vertex cover problem
+				</h1>
+				<p>In this task you will solve a graph problem called the "vertex cover". After solving the problem on your own, you will see solutions proposed by other people. 
+					You will need to decide which of the proposed solutions are correct.</p>
+					
+					<p>You will have the opportunity to win a bonus of up to 70 cents based on your performance. If your own solution is correct you will earn a bonus of 35 cents. 
+						In addition, if you vote correctly on the correctness of each of the solutions you will be shown, you will earn additional 35 cents.</p>
+				
+				<p>	 This tutorial explains
+				the problem and how to use the interface to work on your solution. Please read the tutorial carefully.
+				The tutorial will be followed by a short quiz to make sure you understand the task. If you do not pass the quiz, the tutorial will be shown again until you pass the quiz.</p>
+				
+				<p>
+					In the vertex cover problem, your goal is to find a set of vertices (nodes) in a graph
+					that together "cover" all of the edges in the graph. An edge is considered "covered" if it is 
+					connected to at least one vertex in the graph. To solve the problem you will interact with
+					a graph interface, as shown here (note, you might see a different graph):
+				</p> 
+				<img src="images/tutorial/vc1.png" alt="vc1">
+				
+				<p>
+				Initially, as shown in the above figure, all of the vertices are colored red. 
+				When clicking on a vertex its color changes to green and the edges connected to it are considered "covered" and become thicker, 
+				as shown below for the vertex at the top right corner. Note that the vertex is now green, and the three edges connected to it
+				are thicker.
+				</p> 
+				<img src="images/tutorial/vc2.png" alt="vc1">
+
+				<p>
+				The vertices you choose (shown in green) comprise the vertices set of your solution.
+				The goal is to choose vertices such that all edges in the graph are covered (visually, the covered edges will appear thicker and each of them would be connected to at least one green vertex).
+				For example, this graph is a valid solution to the vertex cover problem since all edges are connected to at least one vertex in the graph.
+				</p> 
+				<img src="images/tutorial/vc3.png" alt="vc1">
+				
+				<p>
+				In contrast, this solution is incorrect, because one edge (the diagonal connecting the two red vertices) was left uncovered since it is not connected to any of the green vertices. Visually you can see the edge line is thinner than the connected edges:
+				</p> 
+				<img src="images/tutorial/vc4.png" alt="vc1">
+				<p>
+				You can explore the graph freely and change your choice of vertices.
+				If you click a chosen (green) vertex, it will become red again, and it will not be included in the vertex set representing your solution.
+				</p> 
+				
+				<p>
+				In this task you will be asked to find a vertex cover of a certain size, meaning that your vertex set should include a certain number of vertices.
+				For example, this vertex cover solution is of size 3, since it includes 3 (green) vertices that together cover all edges in the graph.
+				</p> 
+				<img src="images/tutorial/vc5.png" alt="vc1">	
+				
+				<p>
+				This graph below is also a solution to the vertex cover problem, but it is of size 4, as it includes all four vertices :
+				</p> 
+				<img src="images/tutorial/vc6.png" alt="vc1">	
+				
+				<p>
+					Your solution will be considered correct, only if the set of vertices you have chosen (the green vertices)
+					"cover" all of the edges, and your set includes the requested number of vertices corresponding to the size of the vertex cover.
+					For example, if the task was to find a vertex cover of size 4, then the last graph shown above represents a correct solution.
+					However, if the task was to find a vertex cover of size 3, the last graph would be considered incorrect as it includes 4 vertices. 
+				</p>			
+				
+				<p>
+					When you are ready to start the task, press "continue". You will then complete a short comprehension test and 
+					will be presented with a vertex cover problem. 
+				</p>	
+			</div>
+		</div> 
+		
+		<div id="quiz" class="page">
+			<div id="quizDiv">
+			<h1>Please answer the following questions:</h1>
+			<p><b>(1) Given that the task was to find a vertex cover of size 2,  does this graph present a correct solution?</b></p>
+			<img src="images/quiz/notVC.jpg" height="300">
+			<p>
+			
+					<input type="radio" name="quiz1" value=y>Yes.<br>
+					<input type="radio" name="quiz1" value=n1>No, because it is a correct vertex cover but of size 3.<br>
+					<input type="radio" name="quiz1" value=n2>No, because not all edges are covered.<br>
+			</p>
+
+			<p><b>(2) Given that the task was to find a vertex cover of size 4,  does this graph present a correct solution?</b></p>
+			<img src="images/quiz/4VC.jpg" height="300">
+			<p> 
+				
+					<input type="radio" name="quiz2" value=y>Yes.<br>
+					<input type="radio" name="quiz2" value=n1>No, because it is a vertex cover but of size 2.<br>
+					<input type="radio" name="quiz2" value=n2>No, because not all edges are covered.<br>
+			</p>
+					<p>	<b>(3) Given that the task was to find a vertex cover of size 4,  does this graph present a correct solution?</b></p>
+			<img src="images/quiz/5VC.jpg" height="300">
+			<p>
+					<input type="radio" name="quiz3" value=y>Yes.<br>
+					<input type="radio" name="quiz3" value=n1>No, because it is a vertex cover but of size 5.<br>
+					<input type="radio" name="quiz3" value=n2>No, because not all edges are covered.<br>
+			</p>
+			
+			</div>
+		</div>
+		
+		<div id="experiment" class="page">
+			<div id="expDesc">
+				<h2>Your task is to find a vertex cover of size 12 in the graph shown below. </h2><br>
+				<b>Your solution will be the set of vertices you chose (the vertices colored green when you click the continue button). </b>
+				<br><b>Remember - a correct solution must cover all edge while having exactly 12 green vertices. If your solution is correct you will earn a bonus of 35 cents.</b>
+				<br>
+				<br>
+				<b>After submitting your solution (by pressing the continue button), you will be shown solutions proposed by other people and will decide which solution to vote for. </b>
+				<br><br>
+				<b>Please note, the graph might take a minute or two to load. </b>
+				<br><br>
+				
+
+			</div>
+			<div id="ownSol" class="page" align="center" style="text-align: left;">
+			<div id="voteDescC">
+				<h2>Voting</h2><br>
+				<b>Please examine your proposed solution, shown below, and vote whether you think it is correct.<br>
+				Remember, a correct solution covers all edges while using exactly 12 green vertices. </b>
+						<br>
+						<br>
+						<br>
+			</div>
+
+
+
+
+		</div>
+			<div id="splitinterface-widget-container" style="position: relative;">
+				<iframe id="bguFrame" src="http://hdm.ise.bgu.ac.il/GDM.GEO.Web/GDMVisualizationTestPage.html?workerId=testFrame" style="width:100%;height:100%;"></iframe>
+				<!-- <iframe id="testFrame"  style="top: 0; left: 0; width:1000px;height:600px;background-color: blue;position: absolute"></iframe> -->
+				
+				
+			</div>
+			
+			<div id="solOwnExp" class="page" style="text-align: center">
+				<br><input type="radio" name="ownVote" value=correct>Correct.<br>
+				<input type="radio" name="ownVote" value=incorrect>Incorrect<br>
+				<p><b>Please briefly explain your voting:</b></p>
+				<center>
+					<textarea id="explanationVoteB" name="explanation" rows="10" cols="100" maxlength = "500" required = "required"></textarea>
+				</center>
+			</div>
+			
+						<div id="indExp" style="text-align: center">
+				<p><b>Please explain your solution, be as detailed as possible such that other people will be convinced that your solution is correct:</b></p>
+				<p>
+					<center>
+						<textarea id="explanationVoteOwn" name="explanation" rows="10" cols="100" maxlength = "500" required = "required"></textarea>
+					</center>
+				</p>
+				<p><b>Did you use any strategy for solving the problem? if so, please describe it briefly:</b></p>
+				<p>
+					<center>
+						<textarea id="solution" name="solution" rows="10" cols="100" maxlength = "500"></textarea>
+					</center>
+				</p>
+			</div>
+		</div>
+		
+				<div id="group" class="page">
+			
+				
+					<h2>Next you will be shown three solutions - your own solution, and two solutions proposed by other people. </h2>
+					<p>Please examine all solutions (yours and the two proposed solutions); for each solution, vote whether you think it is correct or incorrect.
+					</p>
+
+					<p>If you vote correctly on all solutions, you will earn an additional bonus of 35 cents.</p>
+						
+				
+			</div>	
+		
+		<div id="solA" class="page" style="text-align: left;">
+			<div id="voteDescA">
+				<h2>Voting</h2><br>
+				<b>Please examine the proposed solution below and vote whether you think it is correct.<br>
+				Remember, a correct solution covers all edges while using exactly 12 green vertices. </b>
+				<br>
+				<br>
+				<br>
+			</div>
+			<p>	<b>Solution A:</b></p>
+			<img id="solOne" src="images/solD_d.jpg">
+			<br><input type="radio" name="AVote" value=correct>Correct.<br>
+			<input type="radio" name="AVote" value=incorrect>Incorrect<br>	
+			<div id="solAExp" style="text-align: center">
+				<p><b>Please briefly explain your voting:</b></p>
+					<center>
+						<textarea id="explanationVoteA" name="explanation" rows="10" cols="100" maxlength = "500" required = "required"></textarea>
+					</center>
+			</div>
+		</div>
+				
+		<div id="solB" class="page" style="text-align: left;">
+			<div id="voteDescB">
+				<h2>Voting</h2><br>
+				<b>Please examine the proposed solution below and vote whether you think it is correct.<br>
+				Remember, a correct solution covers all edges while using exactly 12 green vertices. </b>
+					<br>
+			</div>
+			<p>	<b>Solution B:</b></p>
+			<img id="solTwo" src="images/solC_d.jpg">
+			<br><input type="radio" name="BVote" value=correct>Correct.<br>
+			<input type="radio" name="BVote" value=incorrect>Incorrect<br>	
+			<div id="solBExp" style="text-align: center">
+				<p><b>Please briefly explain your voting:</b></p>
+				<center>
+					<textarea id="explanationVoteB" name="explanation" rows="10" cols="100" maxlength = "500" required = "required"></textarea>
+				</center>
+			</div>
+		</div>
+				
+				
+
+
+		<div class="overlay" style="display: none;">
+			<div class="overlay-error">
+				<span class="orange">The browser window is too small. Please maximize the browser.</span>
+			</div>
+		</div>
+
+
+		<div id="real" class="page">
+			<div class="intro">
+			Final Words
+			</div>
+		</div>
+
+
+		
+		<div id="final" class="page">
+			<div class="intro">
+				<p>You successfully completed this task. Thank you!</p>	
+				<p>Please paste your code back in the amazon turk HIT. You have to paste the code in order to get paid.</p>	
+				<p>This is your code:</p>				
+				<span class='code'>
+					code
+				</span>
+			</div>
+		</div>
+
+
+
+		
+
+		
+		
+		
+		<div id="buttonContainer">
+			<button id="btnContinue" onclick="onContinue();">
+				Continue
+			</button>
+		</div>
+		
+		<div id="preload">
+			
+		</div>
+	</body>
+</html>

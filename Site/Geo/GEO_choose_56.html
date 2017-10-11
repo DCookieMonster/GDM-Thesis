@@ -1,0 +1,782 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script type="text/javascript" src="../jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="../generic-tools.js"></script>
+    <script type="text/javascript" src="../experiment-tools-new.js"></script>
+    <script type="text/javascript" src="../browserid.js"></script>
+
+    <script type="text/javascript" src="GEO_choose_56.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../experiment-style.css" />
+    <link rel="stylesheet" type="text/css" href="GEO.css" />
+
+    <title>Geography Game</title>
+</head>
+<body>
+    <div id="consent" class="page">
+        <div class="intro">
+
+            <h2>Consent</h2>
+
+            <p>
+                Please consider this information carefully before deciding whether to accept this task.
+            
+            </p>
+            <p>
+                PURPOSE OF RESEARCH: To examine problem solving performance.
+            
+            </p>
+            <p>
+                WHAT YOU WILL DO: You will be asked to solve a graph puzzle.
+            
+            </p>
+            <p>
+                TIME REQUIRED: Participation will take approximately 10 minutes.
+            
+            </p>
+            <p>
+                RISKS: There are no anticipated risks associated with participating in this study. The effects of participating should be comparable to those you would experience from viewing a computer monitor for 20 minutes and using a mouse.
+            
+            </p>
+            <p>
+                COMPENSATION: Upon completion of this task, you will receive a code to enter on the Amazon Mechanical Turk task page, and you will receive the amount that was indicated on the task page.
+            
+            </p>
+            <p>
+                CONFIDENTIALITY: Your participation in this study will remain confidential. Your responses will be assigned a code number. You will NOT be asked to provide your name. You will be asked to provide your age and gender.
+                    Throughout the experiment, we may collect data such as browser type, operating system version, mouse movements, and error rates.
+            
+            </p>
+            <p>
+                PARTICIPATION AND WITHDRAWAL: Your participation in this study is voluntarily, and you may withdraw and return the task to Amazon Mechanical Turk at any time. You will receive a compensation only if you complete the task. You may withdraw at any time by closing the web page of the task.
+            
+            </p>
+            <p>
+                &nbsp;
+            
+            </p>
+            <p>
+                AGREEMENT: The nature and purpose of this research have been sufficiently explained and I agree to participate in this study. I understand that I am free to withdraw at any time.
+            
+            </p>
+            <p>
+                <input type="checkbox" id="consentagree" onclick="onCheckbox()">
+                I agree and will participate in this study.
+            
+            </p>
+        </div>
+    </div>
+
+    <div id="demographics" class="page">
+        <div class="intro demographics">
+
+
+            <h2>First a Few Questions</h2>
+
+            <table>
+                <tr>
+                    <td>
+                        <p>Age</p>
+                    </td>
+                    <td>
+                        <input type="text" id="age" size="40" /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Gender</p>
+                    </td>
+                    <td>
+                        <select id="gender">
+                            <option value=""></option>
+                            <option value="male">male</option>
+                            <option value="female">female</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Education</p>
+                    </td>
+                    <td>
+                        <select id="education">
+                            <option value="">Select one...</option>
+                            <option value="0">Less than High School</option>
+                            <option value="1">High School/GED</option>
+                            <option value="2">College</option>
+                            <option value="3">Graduate Degree</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+    <div id="instructions" class="page">
+        <div class="intro">
+            <h1>Instructions 
+                </h1>
+            <p>
+                The "Dead End Road" is a two-player game, played by a blue player and a green player.
+
+            </p>
+            <p>
+                The game's opening screen is shown below. 
+
+            </p>
+            <img src="images/tutorial/GEO_0.jpg" alt="geo0" height="300">
+
+            <p>
+                Players alternate turns, where at each turn the active player chooses a vertex that is connected to the vertex chosen in the previous turn. 
+
+            </p>
+            <p>
+                For example, the image below, vertex 26 is the initial vertex.
+            </p>
+            <img src="images/tutorial/GEO_0.jpg" alt="geo0" height="300">
+            <p>
+                You will be the first player to choose a vertex.
+            </p>
+
+            <p>
+                The starting vertex is colored in grey. You should choose one of the vertices that can be reached by one of the green arrows.
+
+            </p>
+            <h3>The Goal</h3>
+            <p>
+                A player wins the game by choosing such that the other player is “stuck” at a dead end, that is, there are no vertices that can be chosen.
+            </p>
+            <p>
+                <b>An example of a situation where the player Green won: </b>
+                You can see the last vertex, vertex 32, has arrows going out but since all the destinations of vertex 32 points have been selected,
+                     this is a dead end vertex.
+            </p>
+            <img src="images/tutorial/GEO_2.jpg" alt="geo0" height="300">
+            <p>
+                When there are green arrows, it is your turn to choose a vertex.
+When blue arrows appear, it is your opponent's turn.
+            </p>
+
+            <p>In your turn, choose a vertex that can be reached  by a green arrow, by clicking the vertex</p>
+
+            <p>The player whose turn to play is displayed at the bottom.</p>
+            <p>
+                The image shows a phase of the game when it is the opponent’s turn to choose a vertex (the blue player)
+
+
+            </p>
+            <img src="images/tutorial/GEO_1.jpg" alt="geo0" height="300">
+            <br>
+            <h3>The Task</h3>
+            <p>In this game you will be the first player (green). Your goal is to choose vertex that guarantees a victory, regardless of the opponent's choices.</p>
+
+            <p>You can simulate your steps and the steps of the opponent on the graph using the interface described earlier.</p>
+
+            <p>
+                <b>It is important to highlight that in the interface you play both players. Namely, you select vertices for the green player, and also blue player.
+                </b>
+            </p>
+            <p>
+                When there are green arrows, it is your turn to choose a vertex.
+When blue arrows appear, it is your opponent's turn.&nbsp;
+            </p>
+
+            <h3>Submit your answer</h3>
+            <p>At any time, you can select at the bottom of the page the first vertex which will guarantee that you (the green player) wins, as follows:</p>
+            <img src="images/tutorial/GEO_choose.png" alt="geo0">
+
+
+            <p>
+                At any stage, you can backtrack as many steps as you want by clicking the "UNDO MOVE“ button, or by clicking on the vertex you selected last.
+            </p>
+            <img src="images/tutorial/undo.png" alt="geo0" align="center">
+
+            <p>
+                You can also click the "RESET" to get a clean graph to clear the graph from all the moves that were chosen.
+
+
+            </p>
+            
+
+            <h3>Explanations:</h3>
+            <p>
+                After you submit your solution, you will be presented with explanation for correct solution to this task that were given by other people. You will be asked to rate the explanations by how much they help you to understand how to solve the problem. 
+            </p>
+            <p>
+
+                you will need to choose from a scale 1 to 5.            </p>
+            
+             <h3>Your payment:</h3>
+            <ul>
+                <li>70 cents fixed payment</li>
+            </ul>
+            <br />
+
+            <h2>When you are ready to start the task, press "continue". You will then complete a short comprehension test and 
+                will be presented with the problem.
+            </h2>
+
+        </div>
+    </div>
+
+    <div id="quiz" class="page">
+        <div id="quizDiv">
+            <h1>Please answer the following questions:</h1>
+            <p><b>(1) How many vertices will you be able to choose if you click on node 38?</b></p>
+            <img src="images/quiz/GEO_2.jpg" height="300">
+            <p>
+                <input type="radio" name="quiz1" value="a">0<br>
+                <input type="radio" name="quiz1" value="b">1<br>
+                <input type="radio" name="quiz1" value="c">2<br>
+            </p>
+            <p><b>(2) Whose turn is it  now?</b></p>
+            <img src="images/quiz/GEO_2.jpg" height="300">
+            <p>
+                <input type="radio" name="quiz2" value="a">Green<br>
+                <input type="radio" name="quiz2" value="b">Blue<br>
+            </p>
+            <p><b>(3) What will happen if you push the "UNDO MOVE” button in the game shown below? </b></p>
+            <img src="images/quiz/GEO_0.jpg" height="300">
+            <p>
+
+                <input type="radio" name="quiz3" value="a">we will go back to vertex 41 (Blue's turn)<br>
+                <input type="radio" name="quiz3" value="b">we will go back to vertex 32 (Green's turn)<br>
+                <input type="radio" name="quiz3" value="c">we will go back to vertex 32 (Blue's turn)<br>
+            </p>
+
+            <p><b>(4) Who won this game?</b></p>
+            <img src="images/quiz/GEO_1.jpg" height="300">
+            <p>
+
+                <input type="radio" name="quiz4" value="a">Green.<br>
+                <input type="radio" name="quiz4" value="b">Blue.<br>
+                <input type="radio" name="quiz4" value="c">No one, the game isn't over yet.<br>
+            </p>
+
+
+        </div>
+    </div>
+    <div id="explan" class="page">
+        <h2>we will now show you several explanations for solving the problem that were given by other participants.</h2>
+    <p>Please rate on a scale of 1 to 5 (5 being the highest), to what extent did this explanation convince you of the correctness of the solution.</p>
+    <h4><b>Please click on the reset button.</b></h4>
+</div>
+
+    <div id="experiment" class="page">
+        <div id="expDesc" class="page">
+            <h2>Your task is to find the first winning move </h2>
+            <br>
+            <b>When you found your first winning move click on the radio button with this move and then click Submit . </b>
+            <br>
+            <b>Remember - a correct solution is the first move that will lead to victory regardless of the other player's choice.</b>
+            <br>
+            <br>
+            <b>After submitting your solution, you will need to answer 2 questions about your play  </b>
+            <br>
+            <br>
+            <b>After answering the questions press the continue button, you will be shown solutions proposed by other people and will decide which solution to vote for.</b>
+            <br>
+            <br>
+            <b>Please note, the graph might take a minute or two to load. </b>
+            <br>
+            <b>Timer:<span id="timer"></span></b>
+            <br>
+            <br>
+        </div>
+
+        <div id="ownSol" class="page" align="center" style="text-align: center;">
+        </div>
+        <div id="splitinterface-widget-container" style="position: relative;">
+            <iframe id="bguFrame" src="http://hdm.ise.bgu.ac.il/GEO-3/GDMVisualizationTestPage.html?workerId=testFrame" style="width: 100%; height: 100%;"></iframe>
+            <!-- <iframe id="testFrame"  style="top: 0; left: 0; width:1000px;height:600px;background-color: blue;position: absolute"></iframe> -->
+        </div>
+        <div id="choose" style="text-align: center" class="page">
+            <p>
+                <b>Choose your winning 1st move:</b><br>
+                <input type="radio" name="ans" value="a">29&nbsp     
+                
+                <input type="radio" name="ans" value="b">53&nbsp  
+                
+                <input type="radio" name="ans" value="c">56  
+        
+            </p>
+
+        </div>
+    </div>
+    <div id="voteDescC" class="page" align="center" style="text-align: center">
+        <h2>Voting</h2>
+        <br>
+        <b>Please examine your proposed solution, shown below, and vote whether you think it is correct.<br>
+            Remember, a correct solution is the first move that will lead to victory regardless of the other player's choice. </b>
+        <br>
+        <br>
+        <b>Timer:<span id="timer3"></span></b>
+        <br>
+    </div>
+    <div id="explainSol" class="page">
+
+
+        <div id="indExp" style="text-align: center">
+            <p><b>Please explain your solution, be as detailed as possible such that other people will be convinced that your solution is correct:</b></p>
+            <p>
+                <center>
+                        <textarea id="explanationVoteOwn" name="explanation" rows="10" cols="100" maxlength = "500" required = "required"></textarea>
+                    </center>
+            </p>
+            <p><b>Did you use any strategy for solving the problem? if so, please describe it briefly:</b></p>
+            <p>
+                <center>
+                        <textarea id="solution" name="solution" rows="10" cols="100" maxlength = "500"></textarea>
+                    </center>
+            </p>
+        </div>
+
+  
+
+    </div>
+<div id="shortExp" class="page">
+         <h2>Evaluating others explanations</h2>
+        <p>
+            In this next phase of the study, we will show you several solutions to this problem that others have submitted along with the explanations they provided. Please rate on a scale of 1 to 5, to what extent did this explanation convince you whether the solution was correct.
+
+      </p>
+    </div>
+  <div id="1" class="page" style="text-align: center">
+                <div class="intro">
+                        <b>Solution 1</b></br>
+                        <b>Answer:</b> Node 53 </br>
+        <p>   <b>Explanation</b></br><b>I picked 53. You can only pick 32, then you can only pick 38. then you can only pick 41, then you can only pick 59, then you can only pick 50. There are now two options (62 and 29) But both of those answers will lead to a dead end, so thus you win!</b></p> 
+        <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+        <input type="radio" name="q1_0" value="1">1 <small>(lowest)</small> &nbsp 
+        <input type="radio" name="q1_0" value="2">2&nbsp 
+        <input type="radio" name="q1_0" value="3">3&nbsp 
+        <input type="radio" name="q1_0" value="4">4&nbsp 
+        <input type="radio" name="q1_0" value="5">5 <small>(highest)</small><br>
+
+<hr>
+  <b>Solution 2</b></br>
+                        <b>Answer:</b> Node 53 </br>
+
+        <p><b>Explanation</b></br><b>Choosing 53 as your first move ensures victory because every move after only allows one option for your opponent (blue). Upon reaching node 50 you (green) can choose either node 62 or 29, with 62 leading to victory. However if you choose node 29 you will win anyway.</b></p>
+                <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+
+        <input type="radio" name="q2_0" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q2_0" value="2">2&nbsp 
+        <input type="radio" name="q2_0" value="3">3&nbsp 
+        <input type="radio" name="q2_0" value="4">4&nbsp 
+        <input type="radio" name="q2_0" value="5">5<small>(highest)</small><br>
+<hr>
+
+  <b>Solution 3</b></br>
+                        <b>Answer:</b> Node 53 </br>
+
+        <p><b>Explanation</b></br><b>"In order:<br>
+
+By choosing 53, the opponent can pick only 32.<br>
+By choosing 38, the opponent can pick only 41.<br>
+By choosing 59, the opponent can pick only 50.<br>
+By choosing 62, the opponent can pick only 29.<br>
+By choosing 35, the opponent can pick only 44.<br>
+By choosing 47, the opponent loses.<br>
+
+At no stage did the opponent have any choice--the game was decided entirely by my choices."</b></p>
+        <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+
+        <input type="radio" name="q3_0" value="1"><small>(lowest)</small>1&nbsp 
+        <input type="radio" name="q3_0" value="2">2&nbsp 
+        <input type="radio" name="q3_0" value="3">3&nbsp 
+        <input type="radio" name="q3_0" value="4">4&nbsp 
+        <input type="radio" name="q3_0" value="5">5<small>(highest)</small><br>
+<hr>
+
+  <b>Solution 4:</b></br>
+                        <b>Answer:</b> Node 53 </br>
+
+        <p><b>Explanation</b></br><b>This is the only one that holds single value possibilities on the next move.  If you trace it from there, eventually you go 32 (blue), 38 (green), 41(blue), 59 (green), 50 (blue), 62 (green choice), 29 (blue), 35 (green), 44 (blue), then green 56 or 47 wins.</b></p>
+                <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+
+        <input type="radio" name="q4_0" value="1"><small>(lowest)</small>1&nbsp 
+        <input type="radio" name="q4_0" value="2">2&nbsp 
+        <input type="radio" name="q4_0" value="3">3&nbsp 
+        <input type="radio" name="q4_0" value="4">4&nbsp 
+        <input type="radio" name="q4_0" value="5">5<small>(highest)</small><br>
+<hr>
+
+  <b>Solution 5</b></br>
+                        <b>Answer:</b> Node 53 </br>
+
+      
+        <p><b>Explanation</b></br><b>  If you choose (53) to start, there is only one option until (50), at which it is green's turn. If green then chooses (62), there is again only one path until (44), where it is again green's turn. If green chooses (47), blue dead ends.</b></p>
+                <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+
+        <input type="radio" name="q5_0" value="1"><small>(lowest)</small>1&nbsp 
+        <input type="radio" name="q5_0" value="2">2&nbsp 
+        <input type="radio" name="q5_0" value="3">3&nbsp 
+        <input type="radio" name="q5_0" value="4">4&nbsp 
+        <input type="radio" name="q5_0" value="5">5<small>(highest)</small><br>
+
+
+</div>
+    </div>
+   
+    <div id="2" class="page" style="text-align: center">
+         <div class="intro">
+ <b>Solution 1</b></br>
+                        <b>Answer:</b> Node 56 </br>
+
+        <p><b>Explanation</b></br><b>there are no further moves that can be made after vertex 56. the two outgoing arrows, 62 and 35, have already been chosen. the blue player can make no other moves.</b></p>
+                <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+
+        <input type="radio" name="q3_1" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q3_1" value="2">2&nbsp 
+        <input type="radio" name="q3_1" value="3">3&nbsp 
+        <input type="radio" name="q3_1" value="4">4&nbsp 
+        <input type="radio" name="q3_1" value="5">5<small>(highest)</small><br>
+        <hr>
+ <b>Solution 2</b></br>
+                        <b>Answer:</b> Node 56 </br>
+
+            <p><b>Explanation</b></br><b>56 would more thanlikely end up going to 35 then 44 and so on. in to what i see should end right</b></p>
+                    <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+
+        <input type="radio" name="q4_1" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q4_1" value="2">2&nbsp 
+        <input type="radio" name="q4_1" value="3">3&nbsp 
+        <input type="radio" name="q4_1" value="4">4&nbsp 
+        <input type="radio" name="q4_1" value="5">5<small>(highest)</small><br><hr>
+ <b>Solution 3</b></br>
+                        <b>Answer:</b> Node 56 </br>
+
+        <p><b>Explanation</b></br><b>Choosing 56 as your first move and then moving along the track I chose gets you to blue losing in 5 moves.</b></p>
+                <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+
+        <input type="radio" name="q2_1" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q2_1" value="2">2&nbsp 
+        <input type="radio" name="q2_1" value="3">3&nbsp 
+        <input type="radio" name="q2_1" value="4">4&nbsp 
+        <input type="radio" name="q2_1" value="5">5<small>(highest)</small><br><hr>
+
+ <b>Solution 4:</b></br>
+                        <b>Answer:</b> Node 56 </br>
+
+    <p><b>Explanation</b></br><b>If you start at 56 you can get all around the web of spots and not have any that are untouched by either color by the end. I found that going to 56 was the only way to get to every single selection. </b></p>
+            <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+
+        <input type="radio" name="q1_1" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q1_1" value="2">2&nbsp 
+        <input type="radio" name="q1_1" value="3">3&nbsp 
+        <input type="radio" name="q1_1" value="4">4&nbsp 
+        <input type="radio" name="q1_1" value="5">5<small>(highest)</small><br><hr>
+ <b>Solution 5</b></br>
+                        <b>Answer:</b> Node 56 </br>
+
+        <p><b>Explanation</b></br><b>  If I choose 56 they could then pick 62. After that I would have to pick 29, they would have to pick 38, I would have to pick 41, they would have to pick 59, and I would pick 50, thus ending in a dead end and winning the game.</b></p>
+               <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+
+        <input type="radio" name="q5_1" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q5_1" value="2">2&nbsp 
+        <input type="radio" name="q5_1" value="3">3&nbsp 
+        <input type="radio" name="q5_1" value="4">4&nbsp 
+        <input type="radio" name="q5_1" value="5">5<small>(highest)</small><br>
+
+
+</div>      
+    </div>
+
+    <div id="3" class="page" style="text-align: center">
+         <div class="intro">
+ <b>Solution 1</b></br>
+                        <b>Answer:</b> Node 29 </br>
+
+ <p><b>Explanation</b></br><b>The moves from 29 will all quickly lead back to the beginning area, creating a dead end.</b></p>
+              <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+  <input type="radio" name="q2_2" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q2_2" value="2">2&nbsp 
+        <input type="radio" name="q2_2" value="3">3&nbsp 
+        <input type="radio" name="q2_2" value="4">4&nbsp 
+        <input type="radio" name="q2_2" value="5">5<small>(highest)</small><br><hr>
+
+ <b>Solution 2</b></br>
+                        <b>Answer:</b> Node 29 </br>
+
+
+            <p><b>Explanation</b></br><b>"29>38>53>32
+
+I tried to force them to go up to 53 from the left so they would get stuck."</b></p>
+               <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+ <input type="radio" name="q3_2" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q3_2" value="2">2&nbsp 
+        <input type="radio" name="q3_2" value="3">3&nbsp 
+        <input type="radio" name="q3_2" value="4">4&nbsp 
+        <input type="radio" name="q3_2" value="5">5<small>(highest)</small><br><hr>
+ <b>Solution 3</b></br>
+                        <b>Answer:</b> Node 29 </br>
+
+   <p><b>Explanation</b></br><b>  first green goes to 29, then blue to 59, then green to 50, then blue to 62, then green has no chance of choosing another solition</b></p>
+               <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+ <input type="radio" name="q5_2" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q5_2" value="2">2&nbsp 
+        <input type="radio" name="q5_2" value="3">3&nbsp 
+        <input type="radio" name="q5_2" value="4">4&nbsp 
+        <input type="radio" name="q5_2" value="5">5<small>(highest)</small><br><hr>
+ <b>Solution 4:</b></br>
+                        <b>Answer:</b> Node 29 </br>
+         <p><b>Explanation</b></br><b>29 has only two vertices, one of which is 59. 59 quickly dead ends in two moves.</b></p>
+               <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+ <input type="radio" name="q1_2" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q1_2" value="2">2&nbsp 
+        <input type="radio" name="q1_2" value="3">3&nbsp 
+        <input type="radio" name="q1_2" value="4">4&nbsp 
+        <input type="radio" name="q1_2" value="5">5<small>(highest)</small><br><hr>
+      
+ <b>Solution 5</b></br>
+                        <b>Answer:</b> Node 29 </br>
+
+        <p><b>Explanation</b></br><b>Well, I tried all three numbers and 29 was the one that had the least possible risk to it and guaranteed me to win.</b></p>
+                <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+<input type="radio" name="q4_2" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q4_2" value="2">2&nbsp 
+        <input type="radio" name="q4_2" value="3">3&nbsp 
+        <input type="radio" name="q4_2" value="4">4&nbsp 
+        <input type="radio" name="q4_2" value="5">5<small>(highest)</small><br>
+
+
+</div>      
+    </div>
+
+  <div id="4" class="page" style="text-align: center">
+                <div class="intro">
+              <b>Solution 1</b></br>
+                        <b>Answer:</b> Node 53 </br>
+
+        <p><b>Explanation</b></br><b>"In order:<br>
+
+By choosing 53, the opponent can pick only 32.<br>
+By choosing 38, the opponent can pick only 41.<br>
+By choosing 59, the opponent can pick only 50.<br>
+By choosing 62, the opponent can pick only 29.<br>
+By choosing 35, the opponent can pick only 44.<br>
+By choosing 47, the opponent loses.<br>
+
+At no stage did the opponent have any choice--the game was decided entirely by my choices."</b></p>
+               <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+ <input type="radio" name="q3_3" value="1"><small>(lowest)</small>1&nbsp 
+        <input type="radio" name="q3_3" value="2">2&nbsp 
+        <input type="radio" name="q3_3" value="3">3&nbsp 
+        <input type="radio" name="q3_3" value="4">4&nbsp 
+        <input type="radio" name="q3_3" value="5">5<small>(highest)</small><br><hr>
+       
+<b>Solution 2</b></br>
+                        <b>Answer:</b> Node 53 </br>
+
+        <p><b>Explanation</b></br><b>Choosing 53 as your first move ensures victory because every move after only allows one option for your opponent (blue). Upon reaching node 50 you (green) can choose either node 62 or 29, with 62 leading to victory. However if you choose node 29 you will win anyway.</b></p>
+              <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+  <input type="radio" name="q2_3" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q2_3" value="2">2&nbsp 
+        <input type="radio" name="q2_3" value="3">3&nbsp 
+        <input type="radio" name="q2_3" value="4">4&nbsp 
+        <input type="radio" name="q2_3" value="5">5<small>(highest)</small><br><hr>
+
+<b>Solution 3</b></br>
+                        <b>Answer:</b> Node 53 </br>
+ <p><b>Explanation</b></br><b>I picked 53. You can only pick 32, then you can only pick 38. then you can only pick 41, then you can only pick 59, then you can only pick 50. There are now two options (62 and 29) But both of those answers will lead to a dead end, so thus you win!</b></p>
+               <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+ <input type="radio" name="q1_3" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q1_3" value="2">2&nbsp 
+        <input type="radio" name="q1_3" value="3">3&nbsp 
+        <input type="radio" name="q1_3" value="4">4&nbsp 
+        <input type="radio" name="q1_3" value="5">5<small>(highest)</small><br><hr>
+
+
+<b>Solution 4:</b></br>
+                        <b>Answer:</b> Node 53 </br>
+   <p><b>Explanation</b></br><b>  If you choose (53) to start, there is only one option until (50), at which it is green's turn. If green then chooses (62), there is again only one path until (44), where it is again green's turn. If green chooses (47), blue dead ends.</b></p>
+               <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+ <input type="radio" name="q5_3" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q5_3" value="2">2&nbsp 
+        <input type="radio" name="q5_3" value="3">3&nbsp 
+        <input type="radio" name="q5_3" value="4">4&nbsp 
+        <input type="radio" name="q5_3" value="5">5<small>(highest)</small><br><hr>
+
+     
+
+<b>Solution 5</b></br>
+                        <b>Answer:</b> Node 53 </br>
+   <p><b>Explanation</b></br><b>This is the only one that holds single value possibilities on the next move.  If you trace it from there, eventually you go 32 (blue), 38 (green), 41(blue), 59 (green), 50 (blue), 62 (green choice), 29 (blue), 35 (green), 44 (blue), then green 56 or 47 wins.</b></p>
+              <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+  <input type="radio" name="q4_3" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q4_3" value="2">2&nbsp 
+        <input type="radio" name="q4_3" value="3">3&nbsp 
+        <input type="radio" name="q4_3" value="4">4&nbsp 
+        <input type="radio" name="q4_3" value="5">5<small>(highest)</small><br>
+      
+     
+
+</div>
+    </div>
+   
+    <div id="5" class="page" style="text-align: center">
+         <div class="intro">
+ <b>Solution 1</b></br>
+                        <b>Answer:</b> Node 56</br>
+   <p><b>Explanation</b></br><b>56 would more thanlikely end up going to 35 then 44 and so on. in to what i see should end right</b></p>
+               <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+ <input type="radio" name="q4_4" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q4_4" value="2">2&nbsp 
+        <input type="radio" name="q4_4" value="3">3&nbsp 
+        <input type="radio" name="q4_4" value="4">4&nbsp 
+        <input type="radio" name="q4_4" value="5">5<small>(highest)</small><br><hr>
+ <b>Solution 2</b></br>
+                        <b>Answer:</b> Node 56</br>
+   <p><b>Explanation</b></br><b>there are no further moves that can be made after vertex 56. the two outgoing arrows, 62 and 35, have already been chosen. the blue player can make no other moves.</b></p>
+               <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+ <input type="radio" name="q3_4" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q3_4" value="2">2&nbsp 
+        <input type="radio" name="q3_4" value="3">3&nbsp 
+        <input type="radio" name="q3_4" value="4">4&nbsp 
+        <input type="radio" name="q3_4" value="5">5<small>(highest)</small><br><hr>
+ <b>Solution 3</b></br>
+                        <b>Answer:</b> Node 56</br>
+           <b>Solution:</b> Node 56 </br>
+
+        <p><b>Explanation</b></br><b>  If I choose 56 they could then pick 62. After that I would have to pick 29, they would have to pick 38, I would have to pick 41, they would have to pick 59, and I would pick 50, thus ending in a dead end and winning the game.</b></p>
+             <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+   <input type="radio" name="q5_4" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q5_4" value="2">2&nbsp 
+        <input type="radio" name="q5_4" value="3">3&nbsp 
+        <input type="radio" name="q5_4" value="4">4&nbsp 
+        <input type="radio" name="q5_4" value="5">5<small>(highest)</small><br><hr>
+      
+ <b>Solution 4:</b></br>
+                        <b>Answer:</b> Node 56</br>
+
+    <p><b>Explanation</b></br><b>If you start at 56 you can get all around the web of spots and not have any that are untouched by either color by the end. I found that going to 56 was the only way to get to every single selection. </b></p>
+             <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+   <input type="radio" name="q1_4" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q1_4" value="2">2&nbsp 
+        <input type="radio" name="q1_4" value="3">3&nbsp 
+        <input type="radio" name="q1_4" value="4">4&nbsp 
+        <input type="radio" name="q1_4" value="5">5<small>(highest)</small><br><hr>
+ <b>Solution 5</b></br>
+                        <b>Answer:</b> Node 56</br>
+                <p><b>Explanation</b></br><b>Choosing 56 as your first move and then moving along the track I chose gets you to blue losing in 5 moves.</b></p>
+               <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+ <input type="radio" name="q2_4" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q2_4" value="2">2&nbsp 
+        <input type="radio" name="q2_4" value="3">3&nbsp 
+        <input type="radio" name="q2_4" value="4">4&nbsp 
+        <input type="radio" name="q2_4" value="5">5<small>(highest)</small><br><hr>
+
+
+</div>      
+    </div>
+
+    <div id="6" class="page" style="text-align: center">
+         <div class="intro">
+ <b>Solution 1</b></br>
+                        <b>Answer:</b> Node 29</br>
+
+   <p><b>Explanation</b></br><b>  first green goes to 29, then blue to 59, then green to 50, then blue to 62, then green has no chance of choosing another solition</b></p>
+        <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+
+        <input type="radio" name="q5_5" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q5_5" value="2">2&nbsp 
+        <input type="radio" name="q5_5" value="3">3&nbsp 
+        <input type="radio" name="q5_5" value="4">4&nbsp 
+        <input type="radio" name="q5_5" value="5">5<small>(highest)</small><br><hr>
+ <b>Solution 2</b></br>
+                        <b>Answer:</b> Node 29</br>
+
+
+            <p><b>Explanation</b></br><b>"29>38>53>32
+
+I tried to force them to go up to 53 from the left so they would get stuck."</b></p>
+               <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+ <input type="radio" name="q3_5" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q3_5" value="2">2&nbsp 
+        <input type="radio" name="q3_5" value="3">3&nbsp 
+        <input type="radio" name="q3_5" value="4">4&nbsp 
+        <input type="radio" name="q3_5" value="5">5<small>(highest)</small><br><hr>
+ <b>Solution 3</b></br>
+                        <b>Answer:</b> Node 29</br>
+         <p><b>Explanation</b></br><b>29 has only two vertices, one of which is 59. 59 quickly dead ends in two moves.</b></p>
+
+              <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+
+        <input type="radio" name="q4_5" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q4_5" value="2">2&nbsp 
+        <input type="radio" name="q4_5" value="3">3&nbsp 
+        <input type="radio" name="q4_5" value="4">4&nbsp 
+        <input type="radio" name="q4_5" value="5">5<small>(highest)</small><br><hr>
+                  
+ <b>Solution 4:</b></br>
+                        <b>Answer:</b> Node 29</br>
+                          <p><b>Explanation</b></br><b>Well, I tried all three numbers and 29 was the one that had the least possible risk to it and guaranteed me to win.</b></p>
+                <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+<input type="radio" name="q1_5" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q1_5" value="2">2&nbsp 
+        <input type="radio" name="q1_5" value="3">3&nbsp 
+        <input type="radio" name="q1_5" value="4">4&nbsp 
+        <input type="radio" name="q1_5" value="5">5<small>(highest)</small><br><hr>
+      
+ <b>Solution 5</b></br>
+                        <b>Answer:</b> Node 29</br>
+   <p><b>Explanation</b></br><b>  first green goes to 29, then blue to 59, then green to 50, then blue to 62, then green has no chance of choosing another solition</b></p>
+             <small class="italic">Please rate on a scale of 1 to 5, to what extent did this explanation convince you of the correctness of the solution.</small><br>
+   <input type="radio" name="q2_5" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q2_5" value="2">2&nbsp 
+        <input type="radio" name="q2_5" value="3">3&nbsp 
+        <input type="radio" name="q2_5" value="4">4&nbsp 
+        <input type="radio" name="q2_5" value="5">5<small>(highest)</small><br>
+
+
+
+</div>      
+    </div>
+ 
+    <div class="overlay" style="display: none;">
+        <div class="overlay-error">
+            <span class="orange">The browser window is too small. Please maximize the browser.</span>
+        </div>
+    </div>
+
+
+    <div id="real" class="page">
+        <div class="intro">
+            Final Words
+        
+        </div>
+    </div>
+
+
+
+    <div id="final" class="page">
+        <div class="intro">
+            <p>You successfully completed this task. Thank you!</p>
+            <p>Please paste your code back in the amazon turk HIT. You have to paste the code in order to get paid.</p>
+            <p>This is your code:</p>
+            <span class='code'>code
+                </span>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div id="buttonContainer">
+        <button id="btnContinue" onclick="onContinue();">
+            Continue
+        
+        </button>
+    </div>
+
+    <div id="preload">
+    </div>
+</body>
+</html>

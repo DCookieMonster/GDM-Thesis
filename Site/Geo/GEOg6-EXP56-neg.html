@@ -1,0 +1,550 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script type="text/javascript" src="../jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="../generic-tools.js"></script>
+    <script type="text/javascript" src="../experiment-tools-new.js"></script>
+    <script type="text/javascript" src="../browserid.js"></script>
+
+    <script type="text/javascript" src="GEOg6-exp-neg.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../experiment-style.css" />
+    <link rel="stylesheet" type="text/css" href="GEO.css" />
+    <style >
+.row{
+    text-align: center;
+}
+    </style>
+    <title>Geography Game</title>
+</head>
+<body>
+    <div id="consent" class="page">
+        <div class="intro">
+
+            <h2>Consent</h2>
+
+            <p>
+                Please consider this information carefully before deciding whether to accept this task.
+			
+            </p>
+            <p>
+                PURPOSE OF RESEARCH: To examine problem solving performance.
+			
+            </p>
+            <p>
+                WHAT YOU WILL DO: You will be asked to solve a graph puzzle.
+			
+            </p>
+            <p>
+                TIME REQUIRED: Participation will take approximately 10 minutes.
+			
+            </p>
+            <p>
+                RISKS: There are no anticipated risks associated with participating in this study. The effects of participating should be comparable to those you would experience from viewing a computer monitor for 20 minutes and using a mouse.
+			
+            </p>
+            <p>
+                COMPENSATION: Upon completion of this task, you will receive a code to enter on the Amazon Mechanical Turk task page, and you will receive the amount that was indicated on the task page.
+			
+            </p>
+            <p>
+                CONFIDENTIALITY: Your participation in this study will remain confidential. Your responses will be assigned a code number. You will NOT be asked to provide your name. You will be asked to provide your age and gender.
+					Throughout the experiment, we may collect data such as browser type, operating system version, mouse movements, and error rates.
+			
+            </p>
+            <p>
+                PARTICIPATION AND WITHDRAWAL: Your participation in this study is voluntarily, and you may withdraw and return the task to Amazon Mechanical Turk at any time. You will receive a compensation only if you complete the task. You may withdraw at any time by closing the web page of the task.
+			
+            </p>
+            <p>
+                &nbsp;
+			
+            </p>
+            <p>
+                AGREEMENT: The nature and purpose of this research have been sufficiently explained and I agree to participate in this study. I understand that I am free to withdraw at any time.
+			
+            </p>
+            <p>
+                <input type="checkbox" id="consentagree" onclick="onCheckbox()">
+                I agree and will participate in this study.
+			
+            </p>
+        </div>
+    </div>
+
+    <div id="demographics" class="page">
+        <div class="intro demographics">
+
+
+            <h2>First a Few Questions</h2>
+
+            <table>
+                <tr>
+                    <td>
+                        <p>Age</p>
+                    </td>
+                    <td>
+                        <input type="text" id="age" size="40" /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Gender</p>
+                    </td>
+                    <td>
+                        <select id="gender">
+                            <option value=""></option>
+                            <option value="male">male</option>
+                            <option value="female">female</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Education</p>
+                    </td>
+                    <td>
+                        <select id="education">
+                            <option value="">Select one...</option>
+                            <option value="0">Less than High School</option>
+                            <option value="1">High School/GED</option>
+                            <option value="2">College</option>
+                            <option value="3">Graduate Degree</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+    <div id="instructions" class="page">
+        <div class="intro">
+            <h1>Instructions 
+				</h1>
+            <p>
+                The "Dead End Road" is a two-player game, played by a blue player and a green player.
+
+            </p>
+            <p>
+                The game's opening screen is shown below. 
+
+            </p>
+            <img src="images/tutorial/GEO_0.jpg" alt="geo0" height="300">
+
+            <p>
+                Players alternate turns, where at each turn the active player chooses a vertex that is connected to the vertex chosen in the previous turn. 
+
+            </p>
+            <p>
+                For example, the image below, vertex 26 is the initial vertex.
+            </p>
+            <img src="images/tutorial/GEO_0.jpg" alt="geo0" height="300">
+            <p>
+                You will be the first player to choose a vertex.
+            </p>
+
+            <p>
+                The starting vertex is colored in grey. You should choose one of the vertices that can be reached by one of the green arrows.
+
+            </p>
+            <h3>The Goal</h3>
+            <p>
+                A player wins the game by choosing such that the other player is “stuck” at a dead end, that is, there are no vertices that can be chosen.
+            </p>
+            <p>
+                <b>An example of a situation where the player Green won: </b>
+                You can see the last vertex, vertex 32, has arrows going out but since all the destinations of vertex 32 points have been selected,
+                     this is a dead end vertex.
+            </p>
+            <img src="images/tutorial/GEO_2.jpg" alt="geo0" height="300">
+            <p>
+                When there are green arrows, it is your turn to choose a vertex.
+When blue arrows appear, it is your opponent's turn.
+            </p>
+
+            <p>In your turn, choose a vertex that can be reached  by a green arrow, by clicking the vertex</p>
+
+            <p>The player whose turn to play is displayed at the bottom.</p>
+            <p>
+                The image shows a phase of the game when it is the opponent’s turn to choose a vertex (the blue player)
+
+
+            </p>
+            <img src="images/tutorial/GEO_1.jpg" alt="geo0" height="300">
+            <br>
+            <h3>The Task</h3>
+            <p>In this game you will be the first player (green). Your goal is to choose vertex that guarantees a victory, regardless of the opponent's choices.</p>
+
+            <p>You can simulate your steps and the steps of the opponent on the graph using the interface described earlier.</p>
+
+            <p>
+                <b>It is important to highlight that in the interface you play both players. Namely, you select vertices for the green player, and also blue player.
+                </b>
+            </p>
+            <p>
+                When there are green arrows, it is your turn to choose a vertex.
+When blue arrows appear, it is your opponent's turn.&nbsp;
+            </p>
+
+            <h3>Submit your answer</h3>
+            <p>At any time, you can select at the bottom of the page the first vertex which will guarantee that you (the green player) wins, as follows:</p>
+            <img src="images/tutorial/GEO_choose.png" alt="geo0">
+
+
+            <p>
+                At any stage, you can backtrack as many steps as you want by clicking the "UNDO MOVE“ button, or by clicking on the vertex you selected last.
+            </p>
+            <img src="images/tutorial/undo.png" alt="geo0" align="center">
+
+            <p>
+                You can also click the "RESET" to get a clean graph to clear the graph from all the moves that were chosen.
+
+
+            </p>
+            
+
+            <h3>Voting on solutions offer by others</h3>
+            <p>
+                After you submit your solution, you will be presented with solutions to this game that were proposed by other people. You will be asked to determine, for each solution, whether it is correct or incorrect.
+            </p>
+            <p>
+                The solution will be presented by displaying the first vertex that was chosen by the participant. You can use the interface in order to examine the proposed solution and decide whether it is correct.
+            </p>
+            <p>
+                The interface is not automatically reset and it will display the graph at the last state from your solution. You can reset the graph by clicking the “reset” button or undoing your previous moves as described earlier.
+            </p>
+            
+             <h3>Your payment:</h3>
+            <ul>
+                <li>70 cents fixed payment</li>
+                <li>35 cents for solving the problem correctly.</li>
+                <li>35 cents for determining the correctness of each of the solutions presented.</li>
+            </ul>
+            <br />
+            <h2>When you are ready to start the task, press "continue". You will then complete a short comprehension test and 
+                will be presented with the problem.
+            </h2>
+
+        </div>
+    </div>
+
+    <div id="quiz" class="page">
+        <div id="quizDiv">
+            <h1>Please answer the following questions:</h1>
+            <p><b>(1) How many vertices will you be able to choose if you click on node 38?</b></p>
+            <img src="images/quiz/GEO_2.jpg" height="300">
+            <p>
+                <input type="radio" name="quiz1" value="a">0<br>
+                <input type="radio" name="quiz1" value="b">1<br>
+                <input type="radio" name="quiz1" value="c">2<br>
+            </p>
+            <p><b>(2) Whose turn is it  now?</b></p>
+            <img src="images/quiz/GEO_2.jpg" height="300">
+            <p>
+                <input type="radio" name="quiz2" value="a">Green<br>
+                <input type="radio" name="quiz2" value="b">Blue<br>
+            </p>
+            <p><b>(3) What will happen if you push the "UNDO MOVE” button in the game shown below? </b></p>
+            <img src="images/quiz/GEO_0.jpg" height="300">
+            <p>
+
+                <input type="radio" name="quiz3" value="a">we will go back to vertex 41 (Blue's turn)<br>
+                <input type="radio" name="quiz3" value="b">we will go back to vertex 32 (Green's turn)<br>
+                <input type="radio" name="quiz3" value="c">we will go back to vertex 32 (Blue's turn)<br>
+            </p>
+
+            <p><b>(4) Who won this game?</b></p>
+            <img src="images/quiz/GEO_1.jpg" height="300">
+            <p>
+
+                <input type="radio" name="quiz4" value="a">Green.<br>
+                <input type="radio" name="quiz4" value="b">Blue.<br>
+                <input type="radio" name="quiz4" value="c">No one, the game isn't over yet.<br>
+            </p>
+
+
+        </div>
+    </div>
+<div id="exam" class="page" align="center" style="text-align: center;">        
+    <b>Please examine the proposed solution below and vote whether you think it is correct.<br>
+                Remember, a correct solution is the first move that will lead to victory regardless of the other player's choice.  </b><br>
+                <br>
+            </div>
+    <div id="experiment" class="page">
+        <div id="expDesc">
+            <h2>Your task is to find the first winning move </h2>
+            <br>
+            <b>When you found your first winning move click on the radio button with this move and then click Submit . </b>
+            <br>
+            <b>Remember - a correct solution is the first move that will lead to victory regardless of the other player's choice.</b>
+            <br>
+            <br>
+            <b>After submitting your solution, you will need to answer 2 questions about your play  </b>
+            <br>
+            <br>
+            <b>After answering the questions press the continue button, you will be shown solutions proposed by other people and will decide which solution to vote for.</b>
+            <br>
+            <br>
+            <b>Please note, the graph might take a minute or two to load. </b>
+            <br>
+            <b>Timer:<span id="timer"></span></b>
+            <br>
+            <br>
+        </div>
+        <div id="ownSol" class="page" align="center" style="text-align: center;">
+        </div>
+
+        <div id="splitinterface-widget-container" style="position: relative;">
+            <iframe id="bguFrame" src="http://hdm.ise.bgu.ac.il/GEO-3/GDMVisualizationTestPage.html?workerId=testFrame" style="width: 100%; height: 100%;"></iframe>
+            <!-- <iframe id="testFrame"  style="top: 0; left: 0; width:1000px;height:600px;background-color: blue;position: absolute"></iframe> -->
+        </div>
+        <div id="choose" style="text-align: center">
+            <p>
+                <b>Choose your winning 1st move:</b><br>
+            <input type="radio" name="ans" value="a">29&nbsp     
+                
+                <input type="radio" name="ans" value="b">53&nbsp  
+                
+                <input type="radio" name="ans" value="c">56 &nbsp 
+                <input type="radio" name="ans" value="d">65 &nbsp  
+                <input type="radio" name="ans" value="e">71 &nbsp  
+
+                <input type="radio" name="ans" value="f">77  
+        
+            </p>
+
+        </div>
+    </div>
+ 
+    <div id="explainSol" class="page">
+        <div class="row">
+        <br>
+          <p><b>Please rate how confident are you in your vote (0-guessing and 10-confident):</b></p>
+
+         <div class="col-xs-6">
+
+          <div class="range range-primary">
+<input type="range" id="range_Sol" min="0" max="10"  oninput="showVal(this.value,'sol')" onchange="showVal(this.value,'sol')">
+            <output id="rangePrimarySol">5</output>
+          </div>
+        </div>
+          </div>
+          <br>
+
+        <div id="indExp" style="text-align: center">
+            <p><b>Please explain your solution, be as detailed as possible such that other people will be convinced that your solution is correct:</b></p>
+            <p>
+                <center>
+						<textarea id="explanationVoteOwn" name="explanation" rows="10" cols="100" maxlength = "500" required = "required"></textarea>
+					</center>
+            </p>
+            <p><b>Did you use any strategy for solving the problem? if so, please describe it briefly:</b></p>
+            <p>
+                <center>
+						<textarea id="solution" name="solution" rows="10" cols="100" maxlength = "500"></textarea>
+					</center>
+            </p>
+        </div>
+
+
+    </div>   <div id="voteDescC" class="page" align="center" style="text-align: center">
+        
+    </div>
+    <div id="solOwnCho" class="page" style="text-align: center">
+        <p><b>Your Solution Was: <b><span id="own">.</span></b></b></p>
+        <br>
+                <b>Timer:<span id="timer3"></span></b>
+<br>
+
+        <b>Your Vote: The solution is </b><br>
+        <input type="radio" name="ownVote" value="correct">Correct.<br>
+        <input type="radio" name="ownVote" value="incorrect">Incorrect<br>
+    </div>
+    <div id="solOwnExp" style="text-align: center">
+ <div class="row">
+        <br>
+          <p><b>Please rate how confident are you in your vote (0-guessing and 10-confident):</b></p>
+
+         <div class="col-xs-6">
+
+          <div class="range range-primary">
+<input type="range" id="range_O" min="0" max="10"  oninput="showVal(this.value,'O')" onchange="showVal(this.value,'O')">
+            <output id="rangePrimaryO">5</output>
+          </div>
+        </div>
+          </div>
+        <p><b>Please briefly explain your voting:</b></p>
+        <center>
+					<textarea id="Textarea1" name="explanation" rows="10" cols="100" maxlength = "500" required = "required"></textarea>
+				</center>
+    </div>
+
+    <div id="shortExp" class="page">
+        <h2>Next you will be shown three solutions - your own solution, and two solutions proposed by other people. </h2>
+        <p>
+            Please examine all solutions (yours and the two proposed solutions); for each solution, vote whether you think it is correct or incorrect.	
+        </p>
+		 <p>If you vote correctly on all solutions, you will earn an additional bonus of 35 cents.</p>
+
+    </div>
+    <div id="solA" class="page" style="text-align: center;">
+        <div id="voteDescA">
+ 
+        
+        <p><b>The Solution:</b>
+        <b>Participant chose the vertex 56</b>
+        <br>
+        <br>
+        <b>The Explanation</b>
+        <br>
+    </div>
+            <div style="text-align: left;    padding-left: 20%;    padding-right: 20%;">
+            <p>Node 56 is the correct solution and here is why:</p>
+            <p>If I choose 56, they have 3 possible paths:<p>
+<ul>
+<li>They could pick 62, then I would pick 29 and they will have 3 possible paths:<ul>
+<li>If they would pick 38, I would have to pick 41, they would have to pick 59, and I would pick 50, thus ending in a dead end and forcing a win.</li>
+<ul>If they would pick 59, from here the same like in 1.1</li>
+<li>If they would pick 35, I would have to pick 44, they would have to pick 53,I would have to pick 32, they would have to pick 38, they would have to pick 38, from here the same like in 1.1</li></li></ul>
+<li>They could pick 32, then I could pick 38, they would have to pick 41, I would pick 59, they would have to pick 50, I could pick 62, they will have to pick 29, I would have to pick 35, they would have to pick 44 and I would pick 53, thus ending the game in a dead end and forcing a win.</li>
+<li>They could pick 35, then I could pick 44, they would have to pick 47, I would pick 53, they would have to pick 32,  I could pick 38, they will have to pick 41, I would pick 59, they would 50 and I would pick 29, thus ending the game in a dead end for this path.</li></ul>
+            
+          <br>
+      </div>
+            <b>Timer:<span id="timer1"></span></b>
+            <br>
+        <b>Your Vote: The solution is </b><br>
+        <input type="radio" name="AVote" value="correct">Correct.<br>
+        <input type="radio" name="AVote" value="incorrect">Incorrect<br>
+    </div>
+    <div id="solAExp" class="page" style="text-align: center">
+    <div class="row">
+        <br>
+          <p><b>Please rate how confident are you in your vote (0-guessing and 10-confident):</b></p>
+
+         <div class="col-xs-6">
+
+          <div class="range range-primary">
+<input type="range" id="range_A" min="0" max="10"  oninput="showVal(this.value,'A')" onchange="showVal(this.value,'A')">
+            <output id="rangePrimaryA">5</output>
+          </div>
+        </div>
+          </div>
+          <br>
+        <p><b>Please briefly explain your voting:</b></p>
+        <center>
+						<textarea id="explanationVoteA" name="explanation" rows="10" cols="100" maxlength = "500" required = "required"></textarea>
+					</center>
+    </div>
+
+    <div id="solB" class="page" style="text-align: center;">
+        <div id="voteDescB">
+          
+            
+        </div>
+         <p><b>The Solution:</b>
+        <b>Participant chose the vertex 53</b>
+        <br>
+        <br>
+         <b>The Explanation</b>
+        <br>
+            <div style="text-align: left;    padding-left: 20%;    padding-right: 20%;">
+
+       
+        <p>Node 53 is a wrong solution, if I choose 53, then the opponent must choose node 32, my only choice now is 38.
+        Now the opponent only have 41, and I choose 59, the opponent choose 50, and I choose 29. Now the opponent choose 35, I can only choose 44 and then the opponent choose 47 and I will loose the game</p>
+
+</div>
+        <br>
+
+        <b>Timer:<span id="timer2"></span></b>
+            <br>
+        <b>Your Vote: The solution is </b><br>
+        <input type="radio" name="BVote" value="correct">Correct.<br>
+        <input type="radio" name="BVote" value="incorrect">Incorrect<br>
+    </div>
+    <div id="solBExp" class="page" style="text-align: center">
+     <div class="row">
+        <br>
+          <p><b>Please rate how confident are you in your vote (0-guessing and 10-confident):</b></p>
+
+         <div class="col-xs-6">
+
+          <div class="range range-primary">
+<input type="range" id="range_B" min="0" max="10"  oninput="showVal(this.value,'B')" onchange="showVal(this.value,'B')">
+            <output id="rangePrimaryB">5</output>
+          </div>
+        </div>
+          </div>
+          <br>
+        <p><b>Please briefly explain your voting:</b></p>
+        <center>
+					<textarea id="explanationVoteB" name="explanation" rows="10" cols="100" maxlength = "500" required = "required"></textarea>
+				</center>
+    </div>
+
+
+
+    <div class="overlay" style="display: none;">
+        <div class="overlay-error">
+            <span class="orange">The browser window is too small. Please maximize the browser.</span>
+        </div>
+    </div>
+
+
+    <div id="real" class="page">
+        <div class="intro">
+            Final Words
+		
+        </div>
+    </div>
+
+
+
+    <div id="final" class="page">
+        <div class="intro">
+            <p>You successfully completed this task. Thank you!</p>
+            <p>Please paste your code back in the amazon turk HIT. You have to paste the code in order to get paid.</p>
+            <p>This is your code:</p>
+            <span class='code'>code
+				</span>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div id="buttonContainer">
+        <button id="btnContinue" onclick="onContinue();">
+            Continue
+		
+        </button>
+    </div>
+
+    <div id="preload">
+    </div>
+
+    <script type="text/javascript">
+function showVal(value,sol){
+    if(sol == 'B')
+    document.getElementById("rangePrimaryB").innerHTML  = value;
+else if (sol=='A'){
+        document.getElementById("rangePrimaryA").innerHTML  = value;
+
+}
+else if (sol=='O'){
+        document.getElementById("rangePrimaryO").innerHTML  = value;
+
+}else{
+            document.getElementById("rangePrimarySol").innerHTML  = value;
+
+}
+}
+    </script>
+</body>
+</html>

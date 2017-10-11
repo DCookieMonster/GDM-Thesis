@@ -1,0 +1,259 @@
+
+
+
+
+
+
+#splitinterface-widget-container{
+	
+	width: 1000px; 
+	height: 500px;
+	margin: auto;
+	
+
+	border: 1px solid #458FEA;
+	border-top: 20px solid #458FEA;
+	background-color: white;
+	box-shadow: 0px 0px 3px 3px #CCC;
+	
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+
+#tball-con{
+	height: 300px; 
+}
+
+#prompt-and-btnnext-container{
+
+}
+
+.overlay {
+	z-index: 100; 
+	position: absolute; 
+	background-color: rgba(32,32,32,0.5);
+	top: 0;
+	left: 0; 
+
+}
+
+.overlay-error {
+	margin: auto;
+	text-align: center; 
+	font-size: larger;
+
+}
+
+.orange {
+	background-color: orange;
+}
+
+.category {
+	float: left;
+ 
+
+	background-color: #DDD;
+
+
+}
+
+.dropdown {
+	display: none; 
+	border: 1px solid #AAA; 
+	
+	position: absolute; 
+	z-index: 1; 
+	width: 154px; 
+	background-color: #DDD; 
+	
+}
+
+
+.header {
+	padding: 1px; 
+	background-image: url('icons/down-bg.png');		
+}
+
+.header:hover {
+	background-color: #BBB; 
+}
+
+.siwidget-catheader {
+		background-image: url('icons/down-bg.png');	
+}
+
+.siwidget-catheader, .siw-preditem {
+
+	height: 40px;
+	width: 32px; 
+	padding: 0;
+	margin: 0; 
+	
+}
+
+.siwidget-catheader img, .siw-preditem img {
+	width: 32px; 
+	height: 32px; 
+}
+
+.siwidget-toolcon {
+
+	padding-top: 8px; 
+	padding-left: 8px; 
+	padding-right: 8px;
+	padding-bottom: 0px; 
+
+
+
+	float: left; 	
+}
+
+.siwidget-toolcon:hover {
+	background-color: orange;
+}
+
+.header img{
+	width: 32px; 
+	height: 32px; 
+	
+	margin: 2px; 
+
+	display: block;  
+}
+
+.item {
+
+	padding: 8px;  
+	
+	border: 1px solid rgba(0,0,0,0);
+	
+	width: 32px; 
+	height: 32px; 
+
+}
+
+.item:hover {
+	border: 1px solid rgba(200,200,200,1);
+	background-color: orange; 
+}
+
+
+
+
+
+
+
+.siw-tbcon{
+
+	
+	border-top: 1px solid #EEE;
+	border-bottom: 1px solid #BBB;
+	overflow: auto;
+}
+
+.siw-tb{
+	background-color: #DDD; 	
+	overflow: auto; 	
+}
+
+
+#example{
+	border: 2px solid gray; 
+}
+
+#tb-menu{
+	width: 300px;
+	height: auto;
+	overflow: auto; 
+	float: left; 
+	
+	background-color: #DDD; 
+}
+
+
+#tb-spacer{
+	width: 400px;
+	float: left;
+
+}
+
+#tb-pred{
+	float: left; 
+
+	width: 300px; 
+	
+	background-color: #DDD;
+}
+
+
+#prompt{
+	border: 1px red solid; 
+	background-color: #DDD;
+	
+	height: 100px;
+	width: 100px; 
+	
+	margin: auto; 
+	overflow: auto; 
+}
+
+#prompt img {
+	width: 32px; 
+	height: 32px; 
+	margin: 32px;
+}
+
+
+
+#nextcon{
+
+	width: 60px; 
+	margin: auto; 
+	padding: 16px;
+
+}
+
+#btnnext {
+	padding: 12px; 
+	font-size: 14px;
+	width: 60px; 
+
+}
+
+.btn-highlight {
+	background-color: orange; 
+}
+
+
+
+
+
+#buttonContainer{
+	height: 50px;
+	text-align: center;
+	clear: both; 
+
+}
+
+#btnContinue{
+	font-size: 20px;
+	padding: 10px;
+	margin: 20px;
+
+}
+
+#preload {
+	display: none;
+}
+
+.bonus, .uscore, .pctile, .dscore, .maxbonus, .minsize, .code {
+	font-size: 20px;
+}
+
+
+

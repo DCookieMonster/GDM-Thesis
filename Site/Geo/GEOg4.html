@@ -1,0 +1,275 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script type="text/javascript" src="../jquery-1.8.2.min.js" ></script>
+		<script type="text/javascript" src="../generic-tools.js" ></script>
+		<script type="text/javascript" src="../experiment-tools.js" ></script>
+		<script type="text/javascript" src="../browserid.js" ></script>
+
+		<script type="text/javascript" src="GEOg4.js" ></script>
+
+   		<link rel="stylesheet" type="text/css" href="../experiment-style.css" /> 		
+		<link rel="stylesheet" type="text/css" href="GEO.css" />
+
+		<title>Geography Game</title>
+	</head>
+	<body >
+		
+		<div id="demographics" class="page">
+			<div class="intro demographics">
+		
+			
+				<h2>First a Few Questions</h2>
+				
+				<table> 
+					<tr>
+						<td><p>Age</p></td>
+						<td><input type="text" id="age" size="40" /></td>
+					</tr>
+					<tr>
+						<td><p>Gender</p></td>
+						<td> <select id="gender">
+							<option value=""></option>					
+							<option value="male">male</option>
+							<option value="female">female</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td><p>Education</p> </td>
+						<td> <select id="education">
+							  <option value="">Select one...</option>
+							  <option value="0" >Less than High School</option>
+							  <option value="1" >High School/GED</option>
+							  <option value="2" >College</option>
+							  <option value="3" >Graduate Degree</option>				
+							</select>
+						</td>				
+					</tr>
+					<tr>
+					</tr>
+				</table>
+		
+			</div> 
+		</div> 
+		<div id="instructions" class="page" style="text-align: center">
+			<div class="intro">
+				<p> <h1>
+					When you are ready to start the task, press "continue". You will then complete a short comprehension test and 
+					will be presented with the problem. </h1>
+				</p>	
+			</div>
+		</div> 
+		
+		<div id="quiz" class="page">
+			<div id="quizDiv">
+			<h1>Please answer the following questions:</h1>
+                	<p>	<b>(1) How many vertices will you be able to choose if you click on node 38?</b></p>
+			<img src="images/quiz/GEO_2.jpg" height="300">
+			<p>
+					<input type="radio" name="quiz1" value=a>0<br>
+					<input type="radio" name="quiz1" value=b>1<br>
+					<input type="radio" name="quiz1" value=c>2<br>
+			</p>
+                	<p>	<b>(2) Whose turn is it  now?</b></p>
+			<img src="images/quiz/GEO_2.jpg" height="300">
+			<p>
+					<input type="radio" name="quiz2" value=a>Green<br>
+					<input type="radio" name="quiz2" value=b>Blue<br>
+			</p>
+			<p><b>(3) What will happen if you push the "UNDO MOVE” button in the game shown below? </b></p>
+			<img src="images/quiz/GEO_0.jpg" height="300">
+			<p>
+			
+					<input type="radio" name="quiz3" value=a>we will go back to vertex 41 (Blue's turn)<br>
+					<input type="radio" name="quiz3" value=b>we will go back to vertex 32 (Green's turn)<br>
+					<input type="radio" name="quiz3" value=c>we will go back to vertex 32 (Blue's turn)<br>
+			</p>
+
+			<p><b>(4) Who won this game?</b></p>
+			<img src="images/quiz/GEO_1.jpg" height="300">
+			<p> 
+				
+					<input type="radio" name="quiz4" value=a>Green.<br>
+					<input type="radio" name="quiz4" value=b>Blue.<br>
+					<input type="radio" name="quiz4" value=c>No one, the game isn't over yet.<br>
+			</p>
+				
+			
+			</div>
+		</div>
+		
+		<div id="experiment" class="page">
+			<div id="expDesc">
+				<h2>Your task is to find the first winning move </h2><br>
+				<b>When you found your first winning move click on the radio button with this move and then click Submit . </b>
+				<br><b>Remember - a correct solution is the first move that will lead to victory regardless of the other player's choice.</b>
+				<br>
+				<br>
+				<b>After submitting your solution (by pressing the Submit button), you will need to answer 2 questions about your play  </b>
+				<br><br>
+				<b>After answering the questions press the continue button, you will be shown solutions proposed by other people and will decide which solution to vote for.</b>
+				<br><br>
+				<b>Please note, the graph might take a minute or two to load. </b>
+                <br>
+                <b>Timer:<span id="timer"></span></b>
+				<br><br>
+				
+
+			
+</div>
+			<div id="ownSol" class="page" align="center" style="text-align: center;">
+			
+
+
+
+		</div>
+            
+			<div id="splitinterface-widget-container" style="position: relative;">
+				<iframe id="bguFrame" src="http://hdm.ise.bgu.ac.il/GDM.GEO1.Web/GDMVisualizationTestPage.html?workerId=testFrame" style="width:100%;height:100%;"></iframe>
+				<!-- <iframe id="testFrame"  style="top: 0; left: 0; width:1000px;height:600px;background-color: blue;position: absolute"></iframe> -->
+				</div>
+            <div id="choose" style="text-align: center">
+                <p> 
+				<b>Choose your winning 1st move:</b><br>
+					<input type="radio" name="ans" value=a>47&nbsp     
+					<input type="radio" name="ans" value=b>53&nbsp  
+					<input type="radio" name="ans" value=c>68  
+			</p>
+                
+			</div>
+			<div id="voteDescC" class="page" align="center" style="text-align:center">
+				<h2>Voting</h2><br>
+				<b>Please examine your proposed solution, shown below, and vote whether you think it is correct.<br>
+				Remember, a correct solution is the first move that will lead to victory regardless of the other player's choice. </b>
+						<br>
+						<br>
+                        <b>Timer:<span id="timer3"></span></b>
+						<br>
+                <p>	<b>Your Solution Was: <b><span id="own">.</span></b></b></p>
+			</div>
+			
+			<div id="solOwnExp" class="page" style="text-align: center">
+				<br><input type="radio" name="ownVote" value=correct>Correct.<br>
+				<input type="radio" name="ownVote" value=incorrect>Incorrect<br>
+				<p><b>Please briefly explain your voting:</b></p>
+				<center>
+					<textarea id="explanationVoteB" name="explanation" rows="10" cols="100" maxlength = "500" required = "required"></textarea>
+				</center>
+			</div>
+        
+						<div id="indExp" style="text-align: center">
+				<p><b>Please explain your solution, be as detailed as possible such that other people will be convinced that your solution is correct:</b></p>
+				<p>
+					<center>
+						<textarea id="explanationVoteOwn" name="explanation" rows="10" cols="100" maxlength = "500" required = "required"></textarea>
+					</center>
+				</p>
+				<p><b>Did you use any strategy for solving the problem? if so, please describe it briefly:</b></p>
+				<p>
+					<center>
+						<textarea id="solution" name="solution" rows="10" cols="100" maxlength = "500"></textarea>
+					</center>
+				</p>
+			</div>
+		</div>
+		
+				<div id="group" class="page">
+			
+				
+					<h2>Next you will be shown three solutions - your own solution, and two solutions proposed by other people. </h2>
+					<p>Please examine all solutions (yours and the two proposed solutions); for each solution, vote whether you think it is correct or incorrect.
+					</p>
+
+					
+						
+				
+			</div>	
+	
+
+		<div id="solA" class="page" style="text-align: center;">
+			<div id="voteDescA">
+				<h2>Voting</h2><br>
+				<b>Please examine the proposed solution below and vote whether you think it is correct.<br>
+				Remember, a correct solution is the first move that will lead to victory regardless of the other player's choice.  </b>
+				<br>
+				<br>
+                <b>Timer:<span id="timer1"></span></b>
+				<br>
+			</div>
+			<p>	<b>Solution A:</b></p>
+			<b>The Player chose the vertex 29</b>
+			<br><input type="radio" name="AVote" value=correct>Correct.<br>
+			<input type="radio" name="AVote" value=incorrect>Incorrect<br>	
+			<div id="solAExp" style="text-align: center">
+				<p><b>Please briefly explain your voting:</b></p>
+					<center>
+						<textarea id="explanationVoteA" name="explanation" rows="10" cols="100" maxlength = "500" required = "required"></textarea>
+					</center>
+			</div>
+		</div>
+				
+		<div id="solB" class="page" style="text-align: center;">
+			<div id="voteDescB">
+				<h2>Voting</h2><br>
+				<b>Please examine the proposed solution below and vote whether you think it is correct.<br>
+				Remember, a correct solution is the first move that will lead to victory regardless of the other player's choice. </b>
+					<br>
+                                <b>Timer:<span id="timer2"></span></b>
+                <br>
+
+			</div>
+			<p>	<b>Solution B:</b></p>
+			<b>The Player chose the vertex 53</b>
+			<br><input type="radio" name="BVote" value=correct>Correct.<br>
+			<input type="radio" name="BVote" value=incorrect>Incorrect<br>	
+			<div id="solBExp" style="text-align: center">
+				<p><b>Please briefly explain your voting:</b></p>
+				<center>
+					<textarea id="explanationVoteB" name="explanation" rows="10" cols="100" maxlength = "500" required = "required"></textarea>
+				</center>
+			</div>
+		</div>
+				
+				
+
+
+		<div class="overlay" style="display: none;">
+			<div class="overlay-error">
+				<span class="orange">The browser window is too small. Please maximize the browser.</span>
+			</div>
+		</div>
+
+
+		<div id="real" class="page">
+			<div class="intro">
+			Final Words
+			</div>
+		</div>
+
+
+		
+		<div id="final" class="page">
+			<div class="intro">
+				<p>You successfully completed this task. Thank you!</p>	
+			</div>
+		</div>
+
+
+
+		
+
+		
+		
+		
+		<div id="buttonContainer">
+			<button id="btnContinue" onclick="onContinue();">
+				Continue
+			</button>
+		</div>
+		
+		<div id="preload">
+			
+		</div>
+	</body>
+</html>

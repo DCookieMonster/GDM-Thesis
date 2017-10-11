@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://132.72.64.49/GDMWebServiceTSP/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://132.72.64.49/GDMWebServiceTSP/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_GetExperimentGraph_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExperimentGraph" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetExperimentGraph_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExperimentGraphResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetSessionVariable_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSessionVariable" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetSessionVariable_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSessionVariableResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetSolutionGraph_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSolutionGraph" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetSolutionGraph_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSolutionGraphResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUseSolutionGraph_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUseSolutionGraph" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUseSolutionGraph_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUseSolutionGraphResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCurrentExperimentID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentExperimentID" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCurrentExperimentID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentExperimentIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertIntoExperimentActions_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertIntoExperimentActions" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertIntoExperimentActions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertIntoExperimentActionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddParticipant_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddParticipant" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddParticipant_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddParticipantResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_setSessionVariable_InputMessage">
+    <wsdl:part name="parameters" element="tns:setSessionVariable" />
+  </wsdl:message>
+  <wsdl:message name="IService1_setSessionVariable_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setSessionVariableResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertExperimentGraph_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertExperimentGraph" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertExperimentGraph_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertExperimentGraphResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SolvedProblemGraph_InputMessage">
+    <wsdl:part name="parameters" element="tns:SolvedProblemGraph" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SolvedProblemGraph_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SolvedProblemGraphResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SolutionAcceptancePartial_InputMessage">
+    <wsdl:part name="parameters" element="tns:SolutionAcceptancePartial" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SolutionAcceptancePartial_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SolutionAcceptancePartialResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PerformBulkCopy_InputMessage">
+    <wsdl:part name="parameters" element="tns:PerformBulkCopy" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PerformBulkCopy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PerformBulkCopyResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="GetExperimentGraph">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetExperimentGraph" message="tns:IService1_GetExperimentGraph_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetExperimentGraphResponse" message="tns:IService1_GetExperimentGraph_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionVariable">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetSessionVariable" message="tns:IService1_GetSessionVariable_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetSessionVariableResponse" message="tns:IService1_GetSessionVariable_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSolutionGraph">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetSolutionGraph" message="tns:IService1_GetSolutionGraph_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetSolutionGraphResponse" message="tns:IService1_GetSolutionGraph_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUseSolutionGraph">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetUseSolutionGraph" message="tns:IService1_GetUseSolutionGraph_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetUseSolutionGraphResponse" message="tns:IService1_GetUseSolutionGraph_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentExperimentID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCurrentExperimentID" message="tns:IService1_GetCurrentExperimentID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCurrentExperimentIDResponse" message="tns:IService1_GetCurrentExperimentID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertIntoExperimentActions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertIntoExperimentActions" message="tns:IService1_InsertIntoExperimentActions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertIntoExperimentActionsResponse" message="tns:IService1_InsertIntoExperimentActions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddParticipant">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddParticipant" message="tns:IService1_AddParticipant_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddParticipantResponse" message="tns:IService1_AddParticipant_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setSessionVariable">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/setSessionVariable" message="tns:IService1_setSessionVariable_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/setSessionVariableResponse" message="tns:IService1_setSessionVariable_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertExperimentGraph">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertExperimentGraph" message="tns:IService1_InsertExperimentGraph_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertExperimentGraphResponse" message="tns:IService1_InsertExperimentGraph_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SolvedProblemGraph">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SolvedProblemGraph" message="tns:IService1_SolvedProblemGraph_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SolvedProblemGraphResponse" message="tns:IService1_SolvedProblemGraph_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SolutionAcceptancePartial">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SolutionAcceptancePartial" message="tns:IService1_SolutionAcceptancePartial_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SolutionAcceptancePartialResponse" message="tns:IService1_SolutionAcceptancePartial_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PerformBulkCopy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/PerformBulkCopy" message="tns:IService1_PerformBulkCopy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/PerformBulkCopyResponse" message="tns:IService1_PerformBulkCopy_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetExperimentGraph">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetExperimentGraph" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionVariable">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetSessionVariable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSolutionGraph">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetSolutionGraph" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUseSolutionGraph">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetUseSolutionGraph" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentExperimentID">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetCurrentExperimentID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertIntoExperimentActions">
+      <soap:operation soapAction="http://tempuri.org/IService1/InsertIntoExperimentActions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddParticipant">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddParticipant" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setSessionVariable">
+      <soap:operation soapAction="http://tempuri.org/IService1/setSessionVariable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertExperimentGraph">
+      <soap:operation soapAction="http://tempuri.org/IService1/InsertExperimentGraph" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SolvedProblemGraph">
+      <soap:operation soapAction="http://tempuri.org/IService1/SolvedProblemGraph" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SolutionAcceptancePartial">
+      <soap:operation soapAction="http://tempuri.org/IService1/SolutionAcceptancePartial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PerformBulkCopy">
+      <soap:operation soapAction="http://tempuri.org/IService1/PerformBulkCopy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://132.72.64.49/GDMWebServiceTSP/Service1.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

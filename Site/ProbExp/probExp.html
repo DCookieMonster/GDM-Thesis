@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script type="text/javascript" src="../jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="../generic-tools.js"></script>
+    <script type="text/javascript" src="experiment-tools.js"></script>
+    <script type="text/javascript" src="../browserid.js"></script>
+
+    <script type="text/javascript" src="probExp.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="experiment-style.css" />
+    <link rel="stylesheet" type="text/css" href="TSP.css" />
+
+    <title>Experiment</title>
+</head>
+<body>
+    
+
+    <div id="demographics" class="page">
+        <div class="intro demographics">
+
+                    <h2>Insert your ID:</h2>
+                    <div align="center">
+                    <input  type="text" id="id" size="40" />
+                </div>
+
+        </div>
+    </div>
+
+    <div id="quiz" class="page">
+        <div id="quizDiv">
+            <h1>Please answer the following questions:</h1>
+
+            <p><b>(1) You are in group A, your grade in exrcise 2 is 100 and your grade in exrcise 4 is 100. How many stars do you have?</b></p>
+            <p>
+
+                <input type="radio" name="quiz1" value="a">20<br>
+                <input type="radio" name="quiz1" value="b">28<br>
+                <input type="radio" name="quiz1" value="c">0<br>
+                <input type="radio" name="quiz1" value="d">I do not know<br>
+
+            </p>
+            <p><b>(2) You are in group C, your grade in exrcise 2 is 90 and your grade in exrcise 4 is 100. How many stars do you have?</b></p>
+            <p>
+
+                
+                <input type="radio" name="quiz2" value="a">20<br>
+                <input type="radio" name="quiz2" value="b">28<br>
+                <input type="radio" name="quiz2" value="c">100<br>
+                <input type="radio" name="quiz2" value="d">I do not know, depends on the team that attached to me<br>
+            </p>
+             <p><b>(3) You are in group C, your grade in exrcise 2 is 90 and your grade in exrcise 4 is 100. The attached team got in exrcise 2 100 and in exrcise 4 100. How many stars do you have?</b></p>
+            <p>
+
+                
+                <input type="radio" name="quiz3" value="a">20<br>
+                <input type="radio" name="quiz3" value="b">28<br>
+                <input type="radio" name="quiz3" value="c">100<br>
+                <input type="radio" name="quiz3" value="d">I do not know <br>
+            </p>
+            <p><b>(4) You are in group B, in exrcise 2 your grade in exrcise 4 is 90 and your grade in exrcise 4 is 100. The attached team got in exrcise 2 100 and in exrcise 4 80. How many stars do you have?</b></p>
+            <p>
+
+                
+                <input type="radio" name="quiz4" value="a">20<br>
+                <input type="radio" name="quiz4" value="b">28<br>
+                <input type="radio" name="quiz4" value="c">0<br>
+                <input type="radio" name="quiz4" value="d">I do not know <br>
+            </p>
+            <p><b>(5) You are currently in group A,in which group will you be in the next exercise ??</b></p>
+            <p>
+
+                
+                <input type="radio" name="quiz5" value="a">A<br>
+                <input type="radio" name="quiz5" value="b">B<br>
+                <input type="radio" name="quiz5" value="c">C<br>
+                <input type="radio" name="quiz5" value="d">I do not know, it's a random choice. <br>
+            </p>
+
+
+        </div>
+    </div>
+
+
+    <div id="final" class="page">
+        <div class="intro">
+            <p>You successfully completed this task. Thank you!</p>
+        </div>
+    </div>
+   <div id="notpassfinal" class="page">
+        <div class="intro">
+            <p>You didn't completed this task. You will not be able to take part in this experiment</p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div id="buttonContainer">
+        <button id="btnContinue" onclick="onContinue();">
+            Continue
+		
+        </button>
+    </div>
+
+    <div id="preload">
+    </div>
+</body>
+</html>

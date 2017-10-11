@@ -1,0 +1,1 @@
+C:\Users\Dor\Videos\GDM-New\GDMVisualization\GDMVisualization.Web\GDMVisualization.Web.csproj,635196980924881313,Properties\AssemblyInfo.cs,Service References\ServiceReference1\Reference.cs,

@@ -1,0 +1,552 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script type="text/javascript" src="../jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="../generic-tools.js"></script>
+    <script type="text/javascript" src="../experiment-tools-new.js"></script>
+    <script type="text/javascript" src="../browserid.js"></script>
+
+    <script type="text/javascript" src="TSP_choose_exp.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../experiment-style.css" />
+    <link rel="stylesheet" type="text/css" href="TSP.css" />
+
+    <title>TSP</title>
+</head>
+<body>
+    <div id="consent" class="page">
+        <div class="intro">
+
+            <h2>Consent</h2>
+
+            <p>
+                Please consider this information carefully before deciding whether to accept this task.
+			
+            </p>
+            <p>
+                PURPOSE OF RESEARCH: To examine problem solving performance.
+			
+            </p>
+            <p>
+                WHAT YOU WILL DO: You will be asked to solve a graph puzzle.
+			
+            </p>
+            <p>
+                TIME REQUIRED: Participation will take approximately 10 minutes.
+			
+            </p>
+            <p>
+                RISKS: There are no anticipated risks associated with participating in this study. The effects of participating should be comparable to those you would experience from viewing a computer monitor for 20 minutes and using a mouse.
+			
+            </p>
+            <p>
+                COMPENSATION: Upon completion of this task, you will receive a code to enter on the Amazon Mechanical Turk task page, and you will receive the amount that was indicated on the task page.
+			
+            </p>
+            <p>
+                CONFIDENTIALITY: Your participation in this study will remain confidential. Your responses will be assigned a code number. You will NOT be asked to provide your name. You will be asked to provide your age and gender.
+					Throughout the experiment, we may collect data such as browser type, operating system version, mouse movements, and error rates.
+			
+            </p>
+            <p>
+                PARTICIPATION AND WITHDRAWAL: Your participation in this study is voluntarily, and you may withdraw and return the task to Amazon Mechanical Turk at any time. You will receive a compensation only if you complete the task. You may withdraw at any time by closing the web page of the task.
+			
+            </p>
+            <p>
+                &nbsp;
+			
+            </p>
+            <p>
+                AGREEMENT: The nature and purpose of this research have been sufficiently explained and I agree to participate in this study. I understand that I am free to withdraw at any time.
+			
+            </p>
+            <p>
+                <input type="checkbox" id="consentagree" onclick="onCheckbox()">
+                I agree and will participate in this study.
+			
+            </p>
+        </div>
+    </div>
+
+    <div id="demographics" class="page">
+        <div class="intro demographics">
+
+
+            <h2>First a Few Questions</h2>
+
+            <table>
+                <tr>
+                    <td>
+                        <p>Age</p>
+                    </td>
+                    <td>
+                        <input type="text" id="age" size="40" /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Gender</p>
+                    </td>
+                    <td>
+                        <select id="gender">
+                            <option value=""></option>
+                            <option value="male">male</option>
+                            <option value="female">female</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Education</p>
+                    </td>
+                    <td>
+                        <select id="education">
+                            <option value="">Select one...</option>
+                            <option value="0">Less than High School</option>
+                            <option value="1">High School/GED</option>
+                            <option value="2">College</option>
+                            <option value="3">Graduate Degree</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+    <div id="instructions" class="page" style="text-align: center">
+        <div class="intro">
+            <p>
+                                <p>“The traveling salesman“ game is a single player game. </p>
+
+                
+                <p>Each vertex on the graph is analogous to a City and the edges are analogous to roads between the cities. </p>
+
+                <p>
+                    The purpose of the game is to choose a route that visits all cities without visiting any of the cities more than once.
+                </p>
+                <h3>Opening Page</h3>
+                <p>Your route can start from any city in the graph. </p>
+                <p>
+                    You can mark the starting point of the route - by clicking one of the cities.
+                </p>
+                <img src="images/tutorial/TSP_0.jpg" alt="tsp0" style="height: 224px; width: 267px">
+                <h3>Possible Actions</h3>
+                <p>
+                    You can choose a city by clicking on a vertex.
+Once you select a city, edges (roads) leading to your next possible destinations (cities) will be colored green.
+                </p>
+
+                <p>The blue arrows mark the route you have taken so far.</p>
+
+                <p>You can move forward in completing your route by selecting one of the cities that are connected to green edges (roads). </p>
+
+                <p>
+                    In the example screenshot, it can be seen that the route started at city 1 and the last action was choosing city 5. The next possible destination cities are 2,3 or 4.
+                </p>
+                <img src="images/tutorial/TSP_1.jpg" alt="tsp0" style="height: 233px; width: 259px">
+
+                <p>
+                    At any stage, you can backtrack
+as many steps as you wish by clicking on 
+ the last selected city, or by clicking 
+the "UNDO MOVE“ button.
+                </p>
+                <img src="images/tutorial/undo.png" alt="tsp0" style="height: 35px; width: 88px">
+
+
+                <p>
+                    Once you have completed a route that you think is correct,  submit it by clicking the "Continue" button.
+Once you’ve submitted your solution you will not be able to change it.
+                </p>
+               
+
+                <h3>The Task</h3>
+                <p>Your task is to choose a route that connects all cities without passing through the same city more than once. </p>
+
+                <p>
+                    An example correct solution is shown in the screenshot
+                </p>
+                <img src="images/tutorial/TSP_2.jpg" alt="tsp0" style="height: 225px; width: 264px">
+                <h3>Note</h3>
+                <p>
+                    If you have already visited all cities that are connected to the selected city, green pathways will not appear since additional destinations are no longer accessible (as you cannot visit a city more than once).
+                </p>
+
+                
+            <h3>Explanations:</h3>
+            <p>
+                After you submit your solution, you will be presented with explanation for correct solution to this task that were given by other people. You will be asked to rate the explanations by how much they help you to understand how to solve the problem. 
+            </p>
+            <p>
+
+                you will need to choose from a scale 1 to 5.            </p>
+            
+             <h3>Your payment:</h3>
+            <ul>
+                <li>70 cents fixed payment</li>
+            </ul>
+            <br />
+                <h2>When you are ready to start the task, press "continue". You will then complete a short comprehension test and 
+					will be presented with the problem.
+                </h2>
+            </p>
+        </div>
+    </div>
+
+    <div id="quiz" class="page">
+        <div id="quizDiv">
+            <h1>Please answer the following questions:</h1>
+
+            <p><b>(2) What is the length of this path so far?</b></p>
+            <img src="images/quiz/TSP_0.jpg" style="height: 257px; width: 294px">
+            <p>
+
+                <input type="radio" name="quiz1" value="a">2<br>
+                <input type="radio" name="quiz1" value="b">3<br>
+                <input type="radio" name="quiz1" value="c">5<br>
+            </p>
+            <p><b>(1) What will happen if you push the "UNDO MOVE” button in the game shown below? </b></p>
+            <img src="images/quiz/TSP_2.jpg" style="height: 251px; width: 301px">
+            <p>
+
+                <input type="radio" name="quiz2" value="a">we will go back to vertex 35.<br>
+                <input type="radio" name="quiz2" value="b">we will go back to vertex 38.
+                <br>
+                <input type="radio" name="quiz2" value="c">we will get a blank graph.<br>
+            </p>
+            <p><b>(3) Is this a correct solution?</b></p>
+            <img src="images/quiz/TSP_1.jpg" style="height: 251px; width: 311px">
+            <p>
+                <input type="radio" name="quiz3" value="a">Yes.<br>
+                <input type="radio" name="quiz3" value="b">No, not all the vertex are colored.<br>
+                <input type="radio" name="quiz3" value="c">No, the path length is not in the range.<br>
+            </p>
+
+        </div>
+    </div>
+  <div id="explan" class="page">
+     <h2>we will now show you several explanations for solving the problem that were given by other participants.</h2>
+    <p>Please rate on a scale of 1 to 5 (5 being the highest), to what extent did this explanation convince you of the correctness of the solution.</p>
+</div>
+    <div id="experiment" class="page">
+        <div id="expDesc" class="page">
+            <h2>Your task is to go through all the vertices only once.</h2>
+            <br>
+            <b>When you found the way to move through all the vertices click Submit . </b>
+            <br>
+            <b>Remember - a correct solution is the way to walk through all the vertices only once .</b>
+            <br>
+            <br>
+            <b>After submitting your solution (by pressing <b>the Submit button</b>), you will need to answer 2 questions about your play  </b>
+            <br>
+            <br>
+            <b>After answering the questions press the continue button, you will be shown solutions proposed by other people and will decide which solution to vote for.</b>
+            <br>
+            <br>
+            <b>Please note, the graph might take a minute or two to load. </b>
+            <br>
+            <b>Timer:<span id="timer"></span></b>
+            <br>
+            <br>
+        </div>
+
+        <div id="splitinterface-widget-container" style="position: relative;">
+            <iframe id="bguFrame" src="http://hdm.ise.bgu.ac.il/gdm/GDMVisualizationTestPage.html?workerId=testFrame" style="width: 100%; height: 100%;"></iframe>
+            <!-- <iframe id="testFrame"  style="top: 0; left: 0; width:1000px;height:600px;background-color: blue;position: absolute"></iframe> -->
+
+        </div>
+
+    </div>
+<div id="explainSol" class="page" style="text-align: center">
+        <p><b>Please explain your solution, be as detailed as possible such that other people will be convinced that your solution is correct:</b></p>
+        <p>
+            <center>
+                        <textarea id="explanationVoteOwn" name="explanation" rows="10" cols="100" maxlength = "500" required = "required"></textarea>
+                    </center>
+        </p>
+        <p><b>Did you use any strategy for solving the problem? if so, please describe it briefly:</b></p>
+        <p>
+            <center>
+                        <textarea id="solution" name="solution" rows="10" cols="100" maxlength = "500"></textarea>
+                    </center>
+        </p>
+    </div>
+
+   <div id="shortExp" class="page">
+         <h2>Evaluating others explanations</h2>
+        <p>
+            In this next phase of the study, we will show you several solutions to this problem that others have submitted along with the explanations they provided. Please rate on a scale of 1 to 5, to what extent did this explanation convince you whether the solution was correct.
+
+      </p>
+
+
+    </div>
+   <div id="1" class="page" style="text-align: center">
+                <div class="intro">
+<b>Solution 1</b></br>
+<img src="images/exp/exp1.png" style="height: 400px; width: 430px" >
+</br><b>Explanation</b></br>
+        <p>I started at 56, then went to 26, 50 and then 59. Once at 59, I went down to 65 and then across to 35, then 44 and 47. Once at 47 I went to 41, 53 29, 32, 38, 62 and ended at 68. Didn't visit any place twice, quick and easy.</p>
+        <input type="radio" name="q1_0" value="1">1 <small>(lowest)</small> &nbsp 
+        <input type="radio" name="q1_0" value="2">2&nbsp 
+        <input type="radio" name="q1_0" value="3">3&nbsp 
+        <input type="radio" name="q1_0" value="4">4&nbsp 
+        <input type="radio" name="q1_0" value="5">5 <small>(highest)</small><br>
+        <hr>
+<b>Solution 2</b></br>  
+<img src="images/exp/exp2.png" style="height: 400px; width: 430px" >
+</br><b>Explanation</b></br>
+        <p>The only requirement to a correct solution is that the path travels through all of the vertices only once, which my solution does.  </p>
+        <input type="radio" name="q2_0" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q2_0" value="2">2&nbsp 
+        <input type="radio" name="q2_0" value="3">3&nbsp 
+        <input type="radio" name="q2_0" value="4">4&nbsp 
+        <input type="radio" name="q2_0" value="5">5 <small>(highest)</small><br><hr>
+<b>Solution 3</b>
+<img src="images/exp/exp3.png" style="height: 400px; width: 430px" >
+</br><b>Explanation</b></br>
+         <p>I started at a vertex with only one way in and one way out and just worked my way around from there.  I am excellent at "seeing" the paths when doing tasks like this so it came quite naturally.</p>
+        <input type="radio" name="q3_0" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q3_0" value="2">2&nbsp 
+        <input type="radio" name="q3_0" value="3">3&nbsp 
+        <input type="radio" name="q3_0" value="4">4&nbsp 
+        <input type="radio" name="q3_0" value="5">5 <small>(highest)</small><br><hr>
+<b>Solution 4</b></br>
+<img src="images/exp/exp1.png" style="height: 400px; width: 430px" >
+</br><b>Explanation</b></br>
+         <p>This is the best possible solution because if you try all other solutions, you will be unsuccessful in winning.</p>
+        <input type="radio" name="q4_0" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q4_0" value="2">2&nbsp 
+        <input type="radio" name="q4_0" value="3">3&nbsp 
+        <input type="radio" name="q4_0" value="4">4&nbsp 
+        <input type="radio" name="q4_0" value="5">5 <small>(highest)</small><br><hr>
+<b>Solution 5</b></br> 
+<img src="images/exp/exp4.png" style="height: 400px; width: 430px" >
+</br><b>Explanation</b></br>
+         <p>You have to begin on an interior vertex. Taking the perimeter first will lead to insoluble complications. The chief difficulties are in the loop around vertex 68 and the backtracking of 26 and 50. Beginning at 68 alleviates this and allows 50 to be visited without leaving a deadend.</p>
+        <input type="radio" name="q5_0" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q5_0" value="2">2&nbsp 
+        <input type="radio" name="q5_0" value="3">3&nbsp 
+        <input type="radio" name="q5_0" value="4">4&nbsp 
+        <input type="radio" name="q5_0" value="5">5 <small>(highest)</small><br><hr>
+<b>Solution 6</b></br> 
+<img src="images/exp/exp5.png" style="height: 400px; width: 430px" >
+</br><b>Explanation</b></br>
+         <p>The trick to this solution is to visit the cities in the middle triangle first, because that's the part of the puzzle where you can easily get stuck (because there's no road between 68 and 38). So I started there, and from there it was simple getting to all the other cities one by one.
+         </p>
+        <input type="radio" name="q6_0" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q6_0" value="2">2&nbsp 
+        <input type="radio" name="q6_0" value="3">3&nbsp 
+        <input type="radio" name="q6_0" value="4">4&nbsp 
+        <input type="radio" name="q6_0" value="5">5 <small>(highest)</small><br><hr>
+<b>Solution 7</b></br> 
+<img src="images/exp/exp6.png" style="height: 400px; width: 430px" >
+</br><b>Explanation</b></br>
+        <p>I started at point 38 which only has two options, from there I traced from 62, 68, 32, to 41.  At 41 you can chose to go two directions, but I chose to go to the area where I had trouble earlier.  I connected to 47, 44, 35, 65 then up to 59.  I then traced to 50, 26, 29, 53, and finally finished at 56.  I made sure none of my paths intersected with previous hubs.</p>
+        <input type="radio" name="q7_0" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q7_0" value="2">2&nbsp 
+        <input type="radio" name="q7_0" value="3">3&nbsp 
+        <input type="radio" name="q7_0" value="4">4&nbsp 
+        <input type="radio" name="q7_0" value="5">5 <small>(highest)</small><br>
+
+
+</div>
+    </div>
+   
+    <div id="2" class="page" style="text-align: center">
+                   <div class="intro">
+      <b>Solution 1</b></br> 
+      <img src="images/exp/exp5.png" style="height: 400px; width: 430px" >
+      </br><b>Explanation</b></br>
+         <p>The trick to this solution is to visit the cities in the middle triangle first, because that's the part of the puzzle where you can easily get stuck (because there's no road between 68 and 38). So I started there, and from there it was simple getting to all the other cities one by one.
+         </p>
+        <input type="radio" name="q6_1" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q6_1" value="2">2&nbsp 
+        <input type="radio" name="q6_1" value="3">3&nbsp 
+        <input type="radio" name="q6_1" value="4">4&nbsp 
+        <input type="radio" name="q6_1" value="5">5 <small>(highest)</small><br><hr>
+
+<b>Solution 2</b></br>
+<img src="images/exp/exp2.png" style="height: 400px; width: 430px" >
+</br><b>Explanation</b></br>
+        <p>The only requirement to a correct solution is that the path travels through all of the vertices only once, which my solution does.  </p>
+        <input type="radio" name="q2_1" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q2_1" value="2">2&nbsp 
+        <input type="radio" name="q2_1" value="3">3&nbsp 
+        <input type="radio" name="q2_1" value="4">4&nbsp 
+        <input type="radio" name="q2_1" value="5">5 <small>(highest)</small><br><hr>
+<b>Solution 3</b></br>
+<img src="images/exp/exp1.png" style="height: 400px; width: 430px" >
+</br><b>Explanation</b></br>
+        <p>I started at 56, then went to 26, 50 and then 59. Once at 59, I went down to 65 and then across to 35, then 44 and 47. Once at 47 I went to 41, 53 29, 32, 38, 62 and ended at 68. Didn't visit any place twice, quick and easy.</p>
+        <input type="radio" name="q1_1" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q1_1" value="2">2&nbsp 
+        <input type="radio" name="q1_1" value="3">3&nbsp 
+        <input type="radio" name="q1_1" value="4">4&nbsp 
+        <input type="radio" name="q1_1" value="5">5 <small>(highest)</small><br><hr>
+
+<b>Solution 4</b></br>
+<img src="images/exp/exp6.png" style="height: 400px; width: 430px" >
+</br><b>Explanation</b></br>
+        <p>I started at point 38 which only has two options, from there I traced from 62, 68, 32, to 41.  At 41 you can chose to go two directions, but I chose to go to the area where I had trouble earlier.  I connected to 47, 44, 35, 65 then up to 59.  I then traced to 50, 26, 29, 53, and finally finished at 56.  I made sure none of my paths intersected with previous hubs.</p>
+        <input type="radio" name="q7_1" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q7_1" value="2">2&nbsp 
+        <input type="radio" name="q7_1" value="3">3&nbsp 
+        <input type="radio" name="q7_1" value="4">4&nbsp 
+        <input type="radio" name="q7_1" value="5">5 <small>(highest)</small><br><hr>
+
+<b>Solution 5</b></br> 
+<img src="images/exp/exp4.png" style="height: 400px; width: 430px" >
+</br><b>Explanation</b></br>
+         <p>You have to begin on an interior vertex. Taking the perimeter first will lead to insoluble complications. The chief difficulties are in the loop around vertex 68 and the backtracking of 26 and 50. Beginning at 68 alleviates this and allows 50 to be visited without leaving a deadend.</p>
+        <input type="radio" name="q5_1" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q5_1" value="2">2&nbsp 
+        <input type="radio" name="q5_1" value="3">3&nbsp 
+        <input type="radio" name="q5_1" value="4">4&nbsp 
+        <input type="radio" name="q5_1" value="5">5 <small>(highest)</small><br><hr>
+<b>Solution 6</b></br> 
+<img src="images/exp/exp3.png" style="height: 400px; width: 430px" >
+</br><b>Explanation</b></br>
+         <p>I started at a vertex with only one way in and one way out and just worked my way around from there.  I am excellent at "seeing" the paths when doing tasks like this so it came quite naturally.</p>
+        <input type="radio" name="q3_1" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q3_1" value="2">2&nbsp 
+        <input type="radio" name="q3_1" value="3">3&nbsp 
+        <input type="radio" name="q3_1" value="4">4&nbsp 
+        <input type="radio" name="q3_1" value="5">5 <small>(highest)</small><br><hr>
+
+<b>Solution 7</b></br> 
+<img src="images/exp/exp1.png" style="height: 400px; width: 430px" >
+</br><b>Explanation</b></br>
+         <p>This is the best possible solution because if you try all other solutions, you will be unsuccessful in winning.</p>
+        <input type="radio" name="q4_1" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q4_1" value="2">2&nbsp 
+        <input type="radio" name="q4_1" value="3">3&nbsp 
+        <input type="radio" name="q4_1" value="4">4&nbsp 
+        <input type="radio" name="q4_1" value="5">5 <small>(highest)</small><br>
+</div>      
+    </div>
+
+    <div id="3" class="page" style="text-align: center">
+         <div class="intro">
+
+ <b>Solution 1</b></br>
+    <img src="images/exp/exp2.png" style="height: 400px; width: 430px" >
+    </br><b>Explanation</b></br>
+        <p>The only requirement to a correct solution is that the path travels through all of the vertices only once, which my solution does.  </p>
+        <input type="radio" name="q2_2" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q2_2" value="2">2&nbsp 
+        <input type="radio" name="q2_2" value="3">3&nbsp 
+        <input type="radio" name="q2_2" value="4">4&nbsp 
+        <input type="radio" name="q2_2" value="5">5 <small>(highest)</small><br><hr>
+
+<b>Solution 2</b></br>
+<img src="images/exp/exp1.png" style="height: 400px; width: 430px" >
+</br><b>Explanation</b></br>
+        <p>I started at 56, then went to 26, 50 and then 59. Once at 59, I went down to 65 and then across to 35, then 44 and 47. Once at 47 I went to 41, 53 29, 32, 38, 62 and ended at 68. Didn't visit any place twice, quick and easy.</p>
+        <input type="radio" name="q1_2" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q1_2" value="2">2&nbsp 
+        <input type="radio" name="q1_2" value="3">3&nbsp 
+        <input type="radio" name="q1_2" value="4">4&nbsp 
+        <input type="radio" name="q1_2" value="5">5 <small>(highest)</small><br><hr>
+
+
+<b>Solution 3</b></br> 
+      <img src="images/exp/exp5.png" style="height: 400px; width: 430px" >
+      </br><b>Explanation</b></br>
+         <p>The trick to this solution is to visit the cities in the middle triangle first, because that's the part of the puzzle where you can easily get stuck (because there's no road between 68 and 38). So I started there, and from there it was simple getting to all the other cities one by one.
+         </p>
+        <input type="radio" name="q6_2" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q6_2" value="2">2&nbsp 
+        <input type="radio" name="q6_2" value="3">3&nbsp 
+        <input type="radio" name="q6_2" value="4">4&nbsp 
+        <input type="radio" name="q6_2" value="5">5 <small>(highest)</small><br><hr>
+
+
+<b>Solution 4</b></br> 
+<img src="images/exp/exp4.png" style="height: 400px; width: 430px" >
+</br><b>Explanation</b></br>
+         <p>You have to begin on an interior vertex. Taking the perimeter first will lead to insoluble complications. The chief difficulties are in the loop around vertex 68 and the backtracking of 26 and 50. Beginning at 68 alleviates this and allows 50 to be visited without leaving a deadend.</p>
+        <input type="radio" name="q5_2" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q5_2" value="2">2&nbsp 
+        <input type="radio" name="q5_2" value="3">3&nbsp 
+        <input type="radio" name="q5_2" value="4">4&nbsp 
+        <input type="radio" name="q5_2" value="5">5 <small>(highest)</small><br><hr>
+
+<b>Solution 5</b></br> 
+<img src="images/exp/exp6.png" style="height: 400px; width: 430px" >
+</br><b>Explanation</b></br>
+        <p>I started at point 38 which only has two options, from there I traced from 62, 68, 32, to 41.  At 41 you can chose to go two directions, but I chose to go to the area where I had trouble earlier.  I connected to 47, 44, 35, 65 then up to 59.  I then traced to 50, 26, 29, 53, and finally finished at 56.  I made sure none of my paths intersected with previous hubs.</p>
+        <input type="radio" name="q7_2" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q7_2" value="2">2&nbsp 
+        <input type="radio" name="q7_2" value="3">3&nbsp 
+        <input type="radio" name="q7_2" value="4">4&nbsp 
+        <input type="radio" name="q7_2" value="5">5 <small>(highest)</small><br><hr>
+
+
+
+<b>Solution 6</b></br> 
+<img src="images/exp/exp3.png" style="height: 400px; width: 430px" >
+</br><b>Explanation</b></br>
+         <p>I started at a vertex with only one way in and one way out and just worked my way around from there.  I am excellent at "seeing" the paths when doing tasks like this so it came quite naturally.</p>
+        <input type="radio" name="q3_2" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q3_2" value="2">2&nbsp 
+        <input type="radio" name="q3_2" value="3">3&nbsp 
+        <input type="radio" name="q3_2" value="4">4&nbsp 
+        <input type="radio" name="q3_2" value="5">5 <small>(highest)</small><br><hr>
+
+<b>Solution 7</b></br>
+<img src="images/exp/exp1.png" style="height: 400px; width: 430px" >
+</br><b>Explanation</b></br>
+         <p>This is the best possible solution because if you try all other solutions, you will be unsuccessful in winning.</p>
+        <input type="radio" name="q4_2" value="1">1<small>(lowest)</small>&nbsp 
+        <input type="radio" name="q4_2" value="2">2&nbsp 
+        <input type="radio" name="q4_2" value="3">3&nbsp 
+        <input type="radio" name="q4_2" value="4">4&nbsp 
+        <input type="radio" name="q4_2" value="5">5 <small>(highest)</small><br>   
+</div>      
+    </div>
+    <div class="overlay" style="display: none;">
+        <div class="overlay-error">
+            <span class="orange">The browser window is too small. Please maximize the browser.</span>
+        </div>
+    </div>
+
+
+    <div id="real" class="page">
+        <div class="intro">
+            Final Words
+		
+        </div>
+    </div>
+
+
+
+    <div id="final" class="page">
+        <div class="intro">
+            <p>You successfully completed this task. Thank you!</p>
+            <p>Please paste your code back in the amazon turk HIT. You have to paste the code in order to get paid.</p>
+            <p>This is your code:</p>
+            <span class='code'>code
+				</span>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div id="buttonContainer">
+        <button id="btnContinue" onclick="onContinue();">
+            Continue
+		
+        </button>
+    </div>
+
+    <div id="preload">
+    </div>
+</body>
+</html>
